@@ -1,0 +1,149 @@
+*{
+	text-decoration: none;
+}
+body{
+	width: 1050px;
+	margin:0 auto;
+}
+.header{
+	float:left;
+	width: 1050px;
+}
+
+#table {
+	text-align: center;
+	background-color: #353535;
+}
+
+.text{
+	padding:10px;
+	border:0px solid #353535;
+	background:#353535;
+}
+.text:hover{
+	border:0px solid #cbcbcb;
+	background:#555555;
+	border-radius: 5px;
+}
+#table table tr th span {
+	color: #CCC;
+	display:#353535;
+	width:100%;
+	clear:both;
+	text-align:left;
+	font-size: 20px;
+	font-family: "Segoe Print";
+}
+#table table tr th span:hover{
+	color:#E4E4E4;
+}
+.mid{
+	margin:0;
+	width: 1050px;
+	height: 250px;
+	background-color: #00BD9C;
+	text-align: center;
+}
+.mid_1{
+	width: 1050px;
+	height: 100px;
+	margin-top: 70px;
+}
+
+.font1{
+	font-family: "微软雅黑";
+	font-size:42px;
+	color:white;
+	margin-top:20px;
+}
+.font2{
+	font-family:"Segoe Script" ;
+	font-style: oblique;
+	color:white;
+}
+.font3{
+	font-family:"Times New Roman" ;
+	color:white;
+	font-size:38px;
+}
+
+.div4{
+	width: 1050px;
+	height: 250px;
+	background-color:white;
+	float: left;
+	border: 1px #ECF0F5 solid;
+}
+.div4 img{
+	width:120px;
+	height:155px;
+	margin-top: 5px;
+	margin-left: 30px;
+	float: left;
+}
+.div4 input{
+	background:#00BD9C;
+	color:white;
+	width: 125px;
+	height: 30px;
+	margin-top: 20px;
+	margin-left: 30px;
+	float: left;
+	border-radius: 5px;
+
+}
+.div4_1{
+	width: 180px;
+	height: 220px;
+	background-color: #ECF0F5;
+	float: left;
+	margin-left:35px;
+	margin-top:20px; 
+}
+
+.div4_2{
+	width: 180px;
+	height: 220px;
+	background-color: #ECF0F5;
+	float: left;
+	margin-left:20px;
+	margin-top:20px;  
+}
+.div4_3{
+	width: 180px;
+	height: 220px;
+	background-color: #ECF0F5;
+	float: left;
+	margin-left:20px;
+	margin-top:20px;  
+}
+.div4_4{
+	width: 180px;
+	height: 220px;
+	background-color: #ECF0F5;
+	float: left;
+	margin-left:20px;
+	margin-top:20px;  
+}
+.div4_5{
+	width: 180px;
+	height: 220px;
+	background-color: #ECF0F5;
+	float: left;
+	margin-left:20px;
+	margin-top:20px;  
+}
+.div5{
+	background-color:#ECF0F5;
+	width: 1050px;
+	height: 250px;
+	float: left;
+}
+.div5 a:LINK{
+	color:gray;
+	display:block;
+}
+.div5 a:hover{
+	color:#00BD9C;
+	display:block;
+}

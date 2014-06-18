@@ -1,0 +1,29 @@
+body{
+	width: 1050px;
+	margin: 0 auto;
+}
+.f1{
+	width:1050px;
+	height:100%;
+	background-color: #00BD9C;
+	float: left:
+}
+.f1_1{
+	width: 557px;
+	height:592px;
+	float: left;
+	margin-top: 60px;
+}
+.f1_2{
+	width: 350px;
+	height: 390px;
+	float: left;
+	margin-left:100px;
+	margin-top: 200px;
+}
+.f1_2 font{
+	font-family: "Segoe Script";
+	font-size: 45px;
+	font-weight:30px;
+	color: white;
+}

@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+.us{
+	margin:0;
+	width: 1050px;
+	height: 1300px;
+	border:1px solid #ECF0F5;
+}
+.us1{
+	margin:0;
+	width: 1050px;
+	height: 200px;
+	float: left;
+	border:2px solid white;
+}
+
+.us1_1{
+	width: 200px;
+	height:180px;
+	float: left;
+	margin-left:80px;
+	margin-top: 10px;
+	background-color: white;
+}
+.us1_2{
+	width: 600px;
+	height:100px;
+	float: left;
+	margin-left:80px;
+	margin-top:40px;
+	background-color: white;
+}
+.us1_1 img{
+	height:180px;
+	margin:0 auto;
+	margin-left:50px;
+}
+.us1_2 font{
+	font-family: "微软雅黑";
+	color: silver;
+	font-size: 20px;
+	magin-top:50px;
+	
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="default" namespace="/" extends="struts-default">
+		<action name="main"  class="com.action.GetBooksAction">
+			<result name="success">/booklist.jsp</result> 
+			<result name="input">/error.jsp</result>
+		</action>
+		<action name="addBook"  class="com.action.AddBookAction">
+			<result name="success">/loginsuccess.jsp</result> 
+			<result name="input">/admin.jsp</result>
+		</action>
+		<action name="borrow"  class="com.action.BorrowBookAction">
+			<result name="success">/index.jsp</result> 
+			<result name="input">/admin.jsp</result>
+		</action>
+		<action name="return"  class="com.action.ReturnBookAction">
+			<result name="success">/loginsuccess.jsp</result> 
+			<result name="input">/admin.jsp</result>
+		</action>
+		<action name="login"  class="com.action.LoginAction">
+			<result name="success">/loginsuccess.jsp</result> 
+			<result name="input">/error.jsp</result>
+		</action>
+		<action name="adminLogin"  class="com.action.AdminAction">
+			<result name="success">/loginsuccess.jsp</result> 
+			<result name="input">/error.jsp</result>
+		</action>
+		<action name="addUser"  class="com.action.AddUserAction">
+			<result name="success">/loginsuccess.jsp</result> 
+			<result name="input">/adduser.jsp</result>
+		</action>
+		
+	</package>
+
+</struts>    
