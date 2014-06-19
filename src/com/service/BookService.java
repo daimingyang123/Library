@@ -11,8 +11,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.dao.BookDAO;
 import com.dao.UserDAO;
 import com.entity.Book;
-import com.entity.Borrow;
-import com.entity.User;
 import com.service.inter.BookServiceInter;
 
 public class BookService implements BookServiceInter{
