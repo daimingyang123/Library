@@ -21,7 +21,6 @@ public class GetBooksAction extends ModelAction<Books>{
 			BookServiceInter bookServiceInter = (BookServiceInter) ctx.getBean("bookService");
 			model.setCount(bookServiceInter.getBookCount());
 			int div =  (int) model.getCount() / model.getEveryPageCount();
-			
 			model.setPageCount((model.getCount() % model.getEveryPageCount() == 0)?div:div+1);
 			model.setBooks(bookServiceInter.getBooks(model.getPageIndex(),
 					model.getEveryPageCount()));

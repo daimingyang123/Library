@@ -19,6 +19,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
 	<link rel="stylesheet" href="css/admin.css" type="text/css"></link>
     <link rel="stylesheet" type="text/css" href="css/header1.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/booklist.css"></link>
 </head>
   
   <body>
@@ -42,16 +43,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <tr class="<s:if test="#status.even">row-even</s:if><s:else>row-odd</s:else>">
 
 			<th scope="col" width="20%" align="left" >${book.bookNo}</th>
+			<th scope="col" width="20%" align="left" >${book.state}</th>
 			<th scope="col" width="30%" align="left" >${book.title}</th>
 		    <th scope="col" width="40%" align="left" >${book.plot}</th>
 	    
-</tr>
-</table>			
-</s:iterator> 
-<s:iterator id="borrow" value="borrows" status="status">
-<table width="100%" border="0">
-<tr class="<s:if test="#status.even">row-even</s:if><s:else>row-odd</s:else>">
-			<th scope="col" width="10%" align="left" >${borrow.state}</th>
 </tr>
 </table>			
 </s:iterator> 

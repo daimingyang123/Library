@@ -8,7 +8,7 @@
     <class name="com.entity.User" table="user" catalog="Library">
         <id name="userNo" type="java.lang.Integer">
             <column name="userNo" />
-            <generator class="increment"></generator>
+            <generator class="assigned"></generator>
         </id>
         <property name="userName" type="java.lang.String">
             <column name="userName" length="50" not-null="true" />

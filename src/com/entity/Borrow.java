@@ -16,7 +16,6 @@ public class Borrow implements java.io.Serializable {
 	private Integer userNo;
 	private Integer bookNo;
 	private Date borrowDate;
-	private Integer state;
 	private String title;
 	private String userName;
 
@@ -38,14 +37,12 @@ public class Borrow implements java.io.Serializable {
 		this.user = user;
 		this.book = book;
 		this.borrowDate = borrowDate;
-		this.state = state;
 	}
 	
 	public Borrow(Integer userNo,Integer bookNo,Date borrowDate,Integer state) {
 		this.userNo = userNo;
 		this.bookNo = bookNo;
 		this.borrowDate = borrowDate;
-		this.state = state;
 	}
 
 	// Property accessors
@@ -82,13 +79,6 @@ public class Borrow implements java.io.Serializable {
 		this.borrowDate = borrowDate;
 	}
 
-	public Integer getState() {
-		return this.state;
-	}
-
-	public void setState(Integer state) {
-		this.state = state;
-	}
 
 	public String getTitle() {
 		return title;

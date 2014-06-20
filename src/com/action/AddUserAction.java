@@ -14,12 +14,18 @@ public class AddUserAction extends  ActionSupport {
 	String result;
 	String userName;
 	User newUser;
-	String userNo;
+	Integer userNo;
 	public String getUserName(){
 		return userName;
 	}
 	public void setUserName(String userName){
 		this.userName=userName;
+	}
+	public int getUserNo(){
+		return userNo;
+	}
+	public void setUserNo(int userNo){
+		this.userNo=userNo;
 	}
 	
 //	 private HttpServletRequest request;
@@ -31,7 +37,7 @@ public class AddUserAction extends  ActionSupport {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		UserServiceInter userServiceInter = (UserServiceInter) ctx.getBean("UserService");
 		try {
-			newUser=userServiceInter.addUser(userName);
+			newUser=userServiceInter.addUser(userNo,userName);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

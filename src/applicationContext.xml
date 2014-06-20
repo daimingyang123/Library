@@ -38,11 +38,11 @@
 				<value>com/entity/Book.hbm.xml</value>
 				<value>com/entity/Borrow.hbm.xml</value></list>
 		</property></bean>
-		
+
 		<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
 		<constructor-arg ref="sessionFactory" />
 	</bean>
-	
+
 	<bean id="bookDAO" class="com.dao.BookDAO">
 		<constructor-arg>
 		<ref bean="hibernateTemplate" />

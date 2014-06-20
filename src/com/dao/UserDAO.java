@@ -6,6 +6,8 @@ import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
@@ -125,13 +127,13 @@ public class UserDAO extends DAOSupport implements UserDAOInter {
 	
 	 
 	 // function test
-//	public static void main(String args[]) throws Exception {
-//		ApplicationContext ctx = new ClassPathXmlApplicationContext(
-//				"applicationContext.xml");
-//		UserDAO userDAO = (UserDAO) ctx.getBean("UserDAO");
-//		User newuser = new User();
-////		newuser.setUserNo(3);
-////		newuser.setUserName("fuck");
+	public static void main(String args[]) throws Exception {
+		ApplicationContext ctx = new ClassPathXmlApplicationContext(
+				"applicationContext.xml");
+		UserDAO userDAO = (UserDAO) ctx.getBean("UserDAO");
+		User newuser = new User();
+		newuser.setUserNo(3);
+		newuser.setUserName("fuck");
 //		newuser=userDAO.findByName("fuck");
 //		if(newuser==null){
 //			System.out.println("user is null");
@@ -140,9 +142,9 @@ public class UserDAO extends DAOSupport implements UserDAOInter {
 //			System.out.println(newuser.getUserNo());
 //			System.out.println(newuser.getUserName());
 //		}
-//		
-//		
-//	}
+		userDAO.save(newuser);
+		
+	}
 
 
 	

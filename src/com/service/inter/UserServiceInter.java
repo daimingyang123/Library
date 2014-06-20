@@ -8,5 +8,5 @@ public interface UserServiceInter {
 	
 	public boolean verifyUser(User userNo) throws Exception;
 
-	public User addUser(String userName) throws Exception;
+	public User addUser(Integer userNo,String userName) throws Exception;
 }

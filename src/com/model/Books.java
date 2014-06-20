@@ -7,6 +7,10 @@ import com.entity.Book;
 
 public class Books {
 //	 private String username;
+	 private int everyPageCount = 10;
+	 private long count;
+	 private int pageCount;
+	 private List<Book> books;
 	 private int pageIndex = 1;
 	 public int getPageIndex() {
 		return pageIndex;
@@ -38,8 +42,5 @@ public class Books {
 	public void setBooks(List<Book> books) {
 		this.books = books;
 	}
-	private int everyPageCount = 10;
-	 private long count;
-	 private int pageCount;
-	 private List<Book> books;
+	
 }

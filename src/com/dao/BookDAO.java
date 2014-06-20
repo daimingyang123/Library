@@ -178,7 +178,7 @@ public class BookDAO extends DAOSupport implements BookDAOInter {
 					 throws HibernateException, SQLException
 					 {
 					 Query query =
-					 session.createQuery("from Book order by bookNo DESC");
+					 session.createQuery("from Book order by bookNo");
 					 query.setFirstResult(start);
 					 query.setMaxResults(count);
 					 return query.list();

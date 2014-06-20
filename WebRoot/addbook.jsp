@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <form name="form" action="addBook.action"  method="post">
     <div class="div2_2">
-    <input class="input1" type="text"name="bookNo" disabled="disabled" placeholder="bookNoは入力せずに,自動生成された"/>
+    <input class="input1" type="text"name="bookNo" placeholder="bookNoは入力せずに,自動生成された"/>
     <input class="input2" type="text"name="title" placeholder="書籍名入力し"/>
     <textarea name="plot" placeholder="プロット入力し" ></textarea>
     </div>

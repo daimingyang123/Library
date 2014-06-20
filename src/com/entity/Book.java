@@ -14,6 +14,7 @@ public class Book implements java.io.Serializable {
 	private Integer bookNo;
 	private String title;
 	private String plot;
+	private String state;
 	private Set borrows = new HashSet(0);
 
 	// Constructors
@@ -66,6 +67,14 @@ public class Book implements java.io.Serializable {
 
 	public void setBorrows(Set borrows) {
 		this.borrows = borrows;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
 	}
 
 }

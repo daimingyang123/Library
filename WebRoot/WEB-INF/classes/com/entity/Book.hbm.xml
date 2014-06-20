@@ -8,13 +8,16 @@
     <class name="com.entity.Book" table="book" catalog="Library">
         <id name="bookNo" type="java.lang.Integer">
             <column name="bookNo" />
-            <generator class="increment"></generator>
+            <generator class="assigned"></generator>
         </id>
         <property name="title" type="java.lang.String">
             <column name="title" length="64" not-null="true" />
         </property>
         <property name="plot" type="java.lang.String">
             <column name="plot" length="128" />
+        </property>
+         <property name="state" type="java.lang.String">
+            <column name="state" length="128" />
         </property>
         <set name="borrows" inverse="true">
             <key>

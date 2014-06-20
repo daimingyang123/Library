@@ -12,9 +12,14 @@
 			<generator class="increment"></generator>
 		</primary-key>
 	</table>
-<table name="borrow" catalog="Library" class="com.entity.Borrow">
+	<table name="borrow" catalog="Library" class="com.entity.Borrow">
+		<primary-key>
+			<generator class="increment"></generator>
+		</primary-key>
+	</table>
+<table name="user" catalog="library3" class="com.domain.User">
 	<primary-key>
-		<generator class="increment"></generator>
+		<generator class="assigned"></generator>
 	</primary-key>
 </table>
 </hibernate-reverse-engineering>

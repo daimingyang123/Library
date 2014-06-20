@@ -40,13 +40,14 @@ public class UserService implements UserServiceInter {
 	}
 
 	@Override
-	public User addUser(String userName) throws Exception {
+	public User addUser(Integer userNo,String userName) throws Exception {
 		// TODO Auto-generated method stub
 		addDbUser=new User();
 		if(userName==null&&userName.length()==0){
 			return null;
 		}
 		if(userName!=null&&userName.length()!=0){
+			addDbUser.setUserNo(userNo);
 			addDbUser.setUserName(userName);
 			userDAO.save(addDbUser);
 //			addDbUser.setUserNo(5);

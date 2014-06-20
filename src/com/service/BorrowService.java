@@ -26,24 +26,25 @@ public class BorrowService implements BorrowServiceInter{
 	public void borrowBook(Borrow borrow, HttpSession session,
 	ServletContext servletContext) throws Exception {
 		String title = borrow.getTitle();
-//		System.out.println(title);
 		Book mybook = bookDAO.findByTitle(title);
+		mybook.setState("已借出");
 		String userName = borrow.getUserName();
 		User myuser = userDAO.findByName(userName);
 		java.util.Date now = new java.util.Date();
 		borrow.setBorrowDate(now);
-		borrow.setState(null);
 		borrow.setBookNo(mybook.getBookNo());
 		borrow.setUserNo(myuser.getUserNo());
 //		System.out.println(mybook.getBookNo());
 //		System.out.println(myuser.getUserNo());
 		borrowDAO.save(borrow);
+		bookDAO.save(mybook);
 }
 	@Override
 	public void returnBook(Borrow borrow, HttpSession session,
 			ServletContext servletContext) throws Exception {
 		Book mybook = bookDAO.findByTitle(borrow.getTitle());
 		User myuser = userDAO.findByName(borrow.getUserName());
+		mybook.setState("在架可借");
 		int myuserNo = myuser.getUserNo();
 		int mybookNo = mybook.getBookNo();
 //		int userNo = borrow.getUserNo();
@@ -54,8 +55,8 @@ public class BorrowService implements BorrowServiceInter{
 		
 		
 		Borrow myborrow = borrowDAO.findByUNBN(myuserNo, mybookNo); 
-		myborrow.setState(1);
 		borrowDAO.save(myborrow);
+		bookDAO.save(mybook);
 		System.out.println(myuserNo);
 		System.out.println(mybookNo);
 		System.out.println(myborrow.getId());
