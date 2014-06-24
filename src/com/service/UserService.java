@@ -21,24 +21,24 @@ public class UserService implements UserServiceInter {
 		return null;
 	}
 
+	@SuppressWarnings("unused")
 	@Override
 	public boolean verifyUser(User user) throws Exception {
 		// TODO Auto-generated method stub
 		
 		User dbUser=userDAO.findById(user.getUserNo());
-//		User dbUser=userDAO.findById(2);
 		if (dbUser==null){
 			return false;
 		}
 		int dbno=dbUser.getUserNo();
 		if(user.getUserNo().equals(dbUser.getUserNo()) && user.getUserName().equals(dbUser.getUserName()))
-//		if(true)
 		{
 			return true;
 		}
 		return false;
 	}
 
+	@SuppressWarnings("null")
 	@Override
 	public User addUser(Integer userNo,String userName) throws Exception {
 		// TODO Auto-generated method stub
@@ -50,10 +50,14 @@ public class UserService implements UserServiceInter {
 			addDbUser.setUserNo(userNo);
 			addDbUser.setUserName(userName);
 			userDAO.save(addDbUser);
-//			addDbUser.setUserNo(5);
 			return userDAO.findByName(userName);
 		}
 		return null;
+	}
+
+	@Override
+	public User findByNo(Integer userNo) throws Exception {
+		return userDAO.findByNo(userNo);
 	}
 	
 	//test

@@ -1,5 +1,6 @@
 package com.entity;
 
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -18,6 +19,8 @@ public class Borrow implements java.io.Serializable {
 	private Date borrowDate;
 	private String title;
 	private String userName;
+	private String email;
+	private Date returnDate;
 
 	// Constructors
 
@@ -75,8 +78,8 @@ public class Borrow implements java.io.Serializable {
 		return this.borrowDate;
 	}
 
-	public void setBorrowDate(Date borrowDate) {
-		this.borrowDate = borrowDate;
+	public void setBorrowDate(Date now) {
+		this.borrowDate = now;
 	}
 
 
@@ -110,6 +113,22 @@ public class Borrow implements java.io.Serializable {
 
 	public void setBookNo(Integer bookNo) {
 		this.bookNo = bookNo;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Date getReturnDate() {
+		return returnDate;
+	}
+
+	public void setReturnDate(Date returnDate) {
+		this.returnDate = returnDate;
 	}
 
 

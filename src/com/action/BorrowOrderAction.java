@@ -7,9 +7,9 @@ import com.entity.Borrow;
 import com.service.inter.BorrowServiceInter;
 
 @SuppressWarnings("serial")
-public class BorrowBookAction extends ModelAction<Borrow>{
+public class BorrowOrderAction extends ModelAction<Borrow>{
 
-	public BorrowBookAction(){
+	public BorrowOrderAction(){
 		model = new Borrow();
 		
 	}
@@ -20,7 +20,7 @@ public class BorrowBookAction extends ModelAction<Borrow>{
 //			BookServiceInter bookServiceInter = serviceManager.getBookServiceInter();
 			ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 			BorrowServiceInter borrowServiceInter = (BorrowServiceInter) ctx.getBean("borrowService");
-			borrowServiceInter.borrowBook(model, session, context);
+			borrowServiceInter.borrowOrder(model, session, context);
 			return SUCCESS;
 		}
 		catch (Exception e)

@@ -10,6 +10,7 @@ import com.entity.User;
 import com.opensymphony.xwork2.ActionSupport;
 import com.service.inter.UserServiceInter;
 
+@SuppressWarnings("serial")
 public class AddUserAction extends  ActionSupport {
 	String result;
 	String userName;
@@ -27,12 +28,7 @@ public class AddUserAction extends  ActionSupport {
 	public void setUserNo(int userNo){
 		this.userNo=userNo;
 	}
-	
-//	 private HttpServletRequest request;
-//	 public void setServletRequest(HttpServletRequest request){
-//	      this.request = request;
-//	     }
-//	 
+	 
 	public String execute(){
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		UserServiceInter userServiceInter = (UserServiceInter) ctx.getBean("UserService");
@@ -44,10 +40,8 @@ public class AddUserAction extends  ActionSupport {
 		}
 		if(newUser!=null){
 			
-//			Map request=(Map)ActionContext.getContext().get("request");
 			HttpServletRequest request = ServletActionContext.getRequest();
 			request.setAttribute(userName, newUser.getUserName());
-//			request.setAttribute(userNo, newUser.getUserNo());
 			
 			return SUCCESS;
 		}

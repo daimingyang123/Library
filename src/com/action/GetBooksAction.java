@@ -6,6 +6,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.model.Books;
 import com.service.inter.BookServiceInter;
 
+@SuppressWarnings("serial")
 public class GetBooksAction extends ModelAction<Books>{
 	public GetBooksAction(){
 		model = new Books();

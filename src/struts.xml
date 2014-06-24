@@ -30,6 +30,11 @@
 			<result name="success">/loginsuccess.jsp</result> 
 			<result name="input">/adduser.jsp</result>
 		</action>
+		<action name="borrowOrder"  class="com.action.BorrowOrderAction">
+			<result name="success">/loginsuccess.jsp</result> 
+			<result name="input">/adduser.jsp</result>
+		</action>
+		
 		
 	</package>
 

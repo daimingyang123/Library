@@ -37,11 +37,6 @@ public class UserDAO extends DAOSupport implements UserDAOInter {
 		template.saveOrUpdate(user);
 	}
 	
-//	@Override
-//	public void incViewCount(int id) throws Exception
-//	{
-//		template.bulkUpdate("update Blog set viewCount = viewCount + 1 where id = ?", id);				
-//	}
 
 
 	@Override
@@ -71,13 +66,6 @@ public class UserDAO extends DAOSupport implements UserDAOInter {
 		 
 	}
 	
-//	@Override
-//	public User fingByName(String name) throws Exception {
-//		// TODO Auto-generated method stub
-//		
-//		
-//		return null;
-//	}
 
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
@@ -119,11 +107,15 @@ public class UserDAO extends DAOSupport implements UserDAOInter {
 	 });
 	 }
 
-//	@Override
-//	public long getBlogCount() throws Exception {
-//		List count =  template.find("select count(*) from Blog ");		
-//		return ((Long)count.get(0)).longValue();
-//	}
+	 @SuppressWarnings("unchecked")
+	 @Override
+		public User findByNo(int userNo) throws Exception {
+		 List<User> users=template.find("from User where userNo=?",userNo);
+			if(users.size()>0){
+				return users.get(0);
+				}
+			return null;
+		}
 	
 	 
 	 // function test
@@ -131,20 +123,12 @@ public class UserDAO extends DAOSupport implements UserDAOInter {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext(
 				"applicationContext.xml");
 		UserDAO userDAO = (UserDAO) ctx.getBean("UserDAO");
-		User newuser = new User();
-		newuser.setUserNo(3);
-		newuser.setUserName("fuck");
-//		newuser=userDAO.findByName("fuck");
-//		if(newuser==null){
-//			System.out.println("user is null");
-//		}
-//		if(newuser!=null){
-//			System.out.println(newuser.getUserNo());
-//			System.out.println(newuser.getUserName());
-//		}
-		userDAO.save(newuser);
+		User user = userDAO.findByNo(1);
+		System.out.println(user.getUserName());
 		
 	}
+
+	
 
 
 	

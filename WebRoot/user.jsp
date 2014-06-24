@@ -18,6 +18,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<meta http-equiv="description" content="This is my page">
 	<link rel="stylesheet" href="css/admin.css" type="text/css"></link>
     <link rel="stylesheet" type="text/css" href="css/header1.css"></link>
+    <script type="text/javascript">
+
+    function submit()
+    {
+    alter"fuck";
+//        var no=document.form.userNo.value;
+//    if(no==""||no==null){
+//     document.getElementById("wai").style.display="block";}
+     
+//        form.submit();
+        
+    }
+
+</script> 
 </head>
   
   <body>
@@ -39,17 +53,25 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <form name="form" action="login.action"  method="post">
     <div class="div2_2" >
     <input class="input1" type="text"name="userNo" placeholder="利用者No入力し"/>
+    <div id="wai" style="display:none;">bunengweikong</div>
     <input class="input2" type="text"name="userName" placeholder="利用者氏名入力し"/>
     <input class="input3" type="button" onclick="submit()" value="登録" name="getuser"/>
     </div>
     </form>
 	<script type="text/javascript">
+
     function submit()
     {
-        form.submit();
+    alter"fuck";
+//        var no=document.form.userNo.value;
+//    if(no==""||no==null){
+//     document.getElementById("wai").style.display="block";}
+     
+//        form.submit();
         
     }
-	</script> 
+
+</script> 
     
     </div>
    

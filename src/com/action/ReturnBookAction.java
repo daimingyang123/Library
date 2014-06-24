@@ -6,18 +6,19 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import com.entity.Borrow;
 import com.service.inter.BorrowServiceInter;
 
+@SuppressWarnings("serial")
 public class ReturnBookAction extends ModelAction<Borrow>{
 	public ReturnBookAction(){
 		model = new Borrow();
-		
+
 	}
-	
+
 	public String execute(){
 		try
 		{
 //			BookServiceInter bookServiceInter = serviceManager.getBookServiceInter();
 			ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
-			BorrowServiceInter borrowServiceInter = (BorrowServiceInter) ctx.getBean("BorrowService");
+			BorrowServiceInter borrowServiceInter = (BorrowServiceInter) ctx.getBean("borrowService");
 			borrowServiceInter.returnBook(model, session, context);
 			return SUCCESS;
 		}
@@ -25,7 +26,7 @@ public class ReturnBookAction extends ModelAction<Borrow>{
 		{
 			e.printStackTrace();
 		}
-		result = "·¢²¼Ê§°Ü";
+		result = "Â·Â¢Â²Â¼ÃŠÂ§Â°Ãœ";
 		return INPUT;
 	}
 }

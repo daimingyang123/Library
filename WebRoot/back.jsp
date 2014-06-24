@@ -9,19 +9,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <head>
     <base href="<%=basePath%>">
     
-    <title>書籍登録</title>
-    
+    <title>利用者登録</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" href="css/addbook.css" type="text/css"></link>
+    <link rel="stylesheet" type="text/css" href="css/adduser1.css"></link>
     <link rel="stylesheet" type="text/css" href="css/header1.css"></link>
 </head>
-  
-  <body>
-      <div class="header" id="table">
+<body>
+<div class="header" id="table">
   <table width="100%" border="0">
    <tr>
       <th width="25%" scope="col"><a href="header.jsp" class="pic"><img src="img/5.png" width="150" height="47" /></a></th>
@@ -35,17 +33,26 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </tr>
   </table>
 </div>
-    <div class="div2">
-    <div class="div2_1">
-    <img src="img/ad1.JPG"><input type="button" onclick="submit()" value="書籍登録" name="getinf">
-    </div>
-    <form name="form" action="addBook.action"  method="post">
-    <div class="div2_2">
-    <input class="input1" type="text"name="bookNo" disabled="disabled" placeholder="bookNoは入力せずに,自動生成された"/>
-    <input class="input2" type="text"name="title" placeholder="書籍名入力し"/>
-    <textarea name="plot" placeholder="プロット入力し" ></textarea>
-    </div>
-    </form>
+<div class="biaodan"> 
+<img src="img/ad2.png" style="position:absolute;left:23%;top:15%;width:150px;height:255px;"></img>
+	<form class="contact_form" action="" method="post" name="contact_form">
+		<ul>
+			<li>
+				<label for="name">利用者氏名:</label>
+				<input type="text" name="name" placeholder="利用者No入力し" required/>
+				<span class="form_hint">名前</span>
+			</li>
+			<li>
+				<label for="name">booktitle:</label>
+				<input type="text" name="name" placeholder="利用者氏名入力し" required/>
+				<span class="form_hint">漢字</span>
+			</li>
+			<li>
+				<button class="submit" type="submit">返却</button>
+				<button class="submit1" type="reset">リセット</button>
+			</li>
+</ul>
+	</form>
 	<script type="text/javascript">
     function submit()
     {
@@ -53,7 +60,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         
     }
 	</script> 
+    
     </div>
+   
     <div class="div5">
 	<table width="100%" cellpadding="5" border="50px" bordercolor="#ECF0F5">
  	<tr align="center">

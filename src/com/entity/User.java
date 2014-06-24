@@ -14,6 +14,7 @@ public class User implements java.io.Serializable {
 	private Integer userNo;
 	private String userName;
 	private Set borrows = new HashSet(0);
+	private String email;
 
 	// Constructors
 
@@ -56,6 +57,14 @@ public class User implements java.io.Serializable {
 
 	public void setBorrows(Set borrows) {
 		this.borrows = borrows;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }

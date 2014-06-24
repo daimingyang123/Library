@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <table width="100%" border="0">
    <tr>
       <th width="25%" scope="col"><a href="header.jsp" class="pic"><img src="img/5.png" width="150" height="47" /></a></th>
-      <th width="12%"  scope="col"><a href="booklist.jsp" class="text"><span>蔵書一覧</span></a></th>
+      <th width="12%"  scope="col"><a href="loginsuccess.jsp" class="text"><span>蔵書一覧</span></a></th>
       <th width="15%"  scope="col"><a href="borrowBook.jsp" class="text"><span>書籍貸出し</span></a></th>
       <th width="12%"  scope="col"><a href="backBook.jsp" class="text"><span>書籍返却</span></a></th>
       <th width="15%"  scope="col"><a href="adduser.jsp" class="text"><span>利用者登録</span></a></th>
@@ -41,7 +41,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
     <form name="form" action="addUser.action"  method="post">
     <div class="div2_2" >
-    <input class="input1" type="text"name="userNo"placeholder="IDは入力せずに,自動生成された"/>
+    <input class="input1" type="text"name="userNo"  disabled="disabled" placeholder="IDは入力せずに,自動生成された"/>
     <input class="input2" type="text"name="userName" placeholder="利用者氏名入力し"/>
     <input class="input3" type="reset" value="リセット" name="getinf"/>
     </div>
@@ -49,9 +49,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<script type="text/javascript">
     function submit()
     {
-        
         form.submit();
-		
         
     }
 	</script> 

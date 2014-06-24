@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="div2_1">
     <img src="img/bo1.png"></img>
     </div>
-    <form name="form" action="borrow.action"  method="post">
+    <form name="form" action="borrowOrder.action"  method="post">
     <div class="div2_2" >
     <input class="input1" type="text"name="userName" placeholder="利用者名入力し"/>
     <input class="input2" type="text"name="title" placeholder="書籍名入力し"/>

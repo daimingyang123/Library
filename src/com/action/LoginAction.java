@@ -1,17 +1,16 @@
 package com.action;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.entity.User;
 import com.service.inter.UserServiceInter;
 
+@SuppressWarnings("serial")
 public class LoginAction extends  ModelAction<User> {
-//	protected String result;
-//	private User user=new User();
-//	public User getUser(){
-//		return user;
-//	}
 	public LoginAction(){
 
 		model=new User();
@@ -23,7 +22,9 @@ public class LoginAction extends  ModelAction<User> {
 			UserServiceInter userServiceInter = (UserServiceInter) ctx.getBean("UserService");
 			if(userServiceInter.verifyUser(model))
 				{
-					result="用户登录成功";
+					HttpSession session = ServletActionContext.getRequest().getSession();
+					session.setAttribute("userName", model.getUserName());
+					result="鐢ㄦ埛鐧诲綍鎴愬姛";
 					return SUCCESS;
 				}
 			
@@ -32,7 +33,7 @@ public class LoginAction extends  ModelAction<User> {
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		result="用户登录失败";
+		result="鐢ㄦ埛鐧诲綍澶辫触";
 		return INPUT;
 	}
 

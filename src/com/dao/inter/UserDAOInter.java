@@ -15,6 +15,8 @@ public interface UserDAOInter {
 
 	List<User> getUsers(int start, int count);
 	
+	User findByNo(int No) throws Exception;
+	
 //	User fingByName(String name) throws Exception;
 
 }

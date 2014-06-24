@@ -14,10 +14,13 @@
             <column name="userNo" length="6" not-null="true" />
         </property>
          <property name="bookNo" type="java.lang.Integer">
-            <column name="bookNo" length="8" not-null="true" />
+            <column name="bookNo" length="8" not-null="false" />
         </property>
         <property name="borrowDate" type="java.util.Date">
             <column name="borrowDate" length="10" not-null="true" />
+        </property>
+        <property name="returnDate" type="java.util.Date">
+            <column name="returnDate" length="10" not-null="true" />
         </property>
     </class>
 </hibernate-mapping>

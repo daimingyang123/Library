@@ -1,5 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%@ taglib prefix="s" uri="/struts-tags"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -34,12 +33,22 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 <p/><s:iterator id="book" value="books" status="status">
 <table width="100%" border="0">
+<tr>
+
+			<th scope="col" width="20%" align="left" >bookNo</th>
+			<th scope="col" width="10%" align="left" >state</th>
+			<th scope="col" width="30%" align="left" >title</th>
+		    <th scope="col" width="40%" align="left" >plot</th>
+		    
+	    
+</tr>
 <tr class="<s:if test="#status.even">row-even</s:if><s:else>row-odd</s:else>">
 
 			<th scope="col" width="20%" align="left" >${book.bookNo}</th>
 			<th scope="col" width="10%" align="left" >${book.state}</th>
 			<th scope="col" width="30%" align="left" >${book.title}</th>
 		    <th scope="col" width="40%" align="left" >${book.plot}</th>
+		    
 	    
 </tr>
 </table>			

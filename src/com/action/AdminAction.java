@@ -10,6 +10,7 @@ import org.apache.struts2.ServletActionContext;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+@SuppressWarnings("serial")
 public class AdminAction extends ActionSupport {
 	private String admin;
 	private String password;
@@ -30,21 +31,9 @@ public class AdminAction extends ActionSupport {
 	}
 
 
-//	public String getMotto() {
-//		return "" + properties.get("motto");
-//	}
-//	
-//	public String getAdminName() {
-//		return "" + properties.get("username");
-//	}
-//	
 	public static String getdefaultAdminname() {  
         return "" + properties.get("adminname");  
     }
-//	public static String getdefaultEmail() {  
-//        return "" + properties.get("email");  
-//    }  
-//	
 	
 	public static String getdefaultAdminpassword() {  
         return "" + properties.get("adminpassword");  
@@ -60,7 +49,7 @@ public class AdminAction extends ActionSupport {
 		}
 		else{
 			HttpSession session = ServletActionContext.getRequest().getSession();
-			session.setAttribute("error", "password wrong¯¯");
+			session.setAttribute("error", "password wrongï¿½ï¿½");
 		return INPUT;
 		}
 		}

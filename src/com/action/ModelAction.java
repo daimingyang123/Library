@@ -11,6 +11,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.service.ServiceManager;
 
+@SuppressWarnings("serial")
 public class ModelAction<Model> extends ActionSupport implements ModelDriven<Model>,ServletRequestAware,ServletContextAware{
 	protected Model model;
 	protected static ServiceManager serviceManager;

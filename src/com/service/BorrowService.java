@@ -1,5 +1,9 @@
 package com.service;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
@@ -22,44 +26,86 @@ public class BorrowService implements BorrowServiceInter{
 		this.bookDAO = bookDAO;
 		this.borrowDAO = borrowDAO;
 	}
-	@Override
-	public void borrowBook(Borrow borrow, HttpSession session,
-	ServletContext servletContext) throws Exception {
+
+	
+	public void borrowBook(Borrow borrow,HttpSession session,ServletContext context) throws Exception {
 		String title = borrow.getTitle();
-		Book mybook = bookDAO.findByTitle(title);
-		mybook.setState("�ѽ��");
+		List<Book> books = (List<Book>) bookDAO.findByTitle(title);
+		for(int i=0;i<books.size();i++){
+			Book mybook = books.get(i);
+			if(mybook.getState().equals("在架可借")){
+				mybook.setState("已借出");
+				borrow.setBookNo(mybook.getBookNo());
+				bookDAO.save(mybook);
+				break;
+			}			
+		}
 		String userName = borrow.getUserName();
 		User myuser = userDAO.findByName(userName);
-		java.util.Date now = new java.util.Date();
+		int userNo = myuser.getUserNo();
+		Date now = new Date();
+		Calendar calendar=Calendar.getInstance();   
+		calendar.set(Calendar.DAY_OF_MONTH,calendar.get(Calendar.DAY_OF_MONTH)+30);//让日期加30 
+		Date returnDate = calendar.getTime();
+		borrow.setUserNo(userNo);
 		borrow.setBorrowDate(now);
-		borrow.setBookNo(mybook.getBookNo());
-		borrow.setUserNo(myuser.getUserNo());
-//		System.out.println(mybook.getBookNo());
-//		System.out.println(myuser.getUserNo());
+		borrow.setReturnDate(returnDate);
 		borrowDAO.save(borrow);
-		bookDAO.save(mybook);
-}
-	@Override
-	public void returnBook(Borrow borrow, HttpSession session,
-			ServletContext servletContext) throws Exception {
-		Book mybook = bookDAO.findByTitle(borrow.getTitle());
-		User myuser = userDAO.findByName(borrow.getUserName());
-		mybook.setState("�ڼܿɽ�");
-		int myuserNo = myuser.getUserNo();
-		int mybookNo = mybook.getBookNo();
-//		int userNo = borrow.getUserNo();
-//		int bookNo = borrow.getBookNo();
-//		if(myuserNo == userNo && mybookNo == bookNo){
-//			borrow.setState(1);
-//		}
 		
-		
-		Borrow myborrow = borrowDAO.findByUNBN(myuserNo, mybookNo); 
-		borrowDAO.save(myborrow);
-		bookDAO.save(mybook);
-		System.out.println(myuserNo);
-		System.out.println(mybookNo);
-		System.out.println(myborrow.getId());
 	}
+
+	@Override
+	public void returnBook(Borrow borrow,HttpSession session,ServletContext context) throws Exception {
+		List<Book> books = (List<Book>) bookDAO.findByTitle(borrow.getTitle());
+		String userName = borrow.getUserName();
+		User myuser = userDAO.findByName(userName);
+		int userNo = myuser.getUserNo();
+		List<Borrow> borrows = borrowDAO.findByUserNo(userNo);
+		for(int i=0;i<books.size();i++){
+			for(int j=0;j<borrows.size();j++){
+				if(books.get(i).getBookNo().equals(borrows.get(j).getBookNo())){
+					books.get(i).setState("在架可借");
+					bookDAO.save(books.get(i));
+					borrowDAO.delete(borrows.get(j));
+				}
+			}
+		}
+	}
+
+	@Override
+	public void borrowOrder(Borrow borrow, HttpSession session,
+			ServletContext context) throws Exception {
+		String title = borrow.getTitle();
+		List<Book> books = (List<Book>) bookDAO.findByTitle(title);
+		for(int i=0;i<books.size();i++){
+			Book mybook = books.get(i);
+			if(mybook.getState().equals("已预约")){
+				mybook.setState("已借出");
+				borrow.setBookNo(mybook.getBookNo());
+				bookDAO.save(mybook);
+				break;
+			}			
+		}
+		String userName = borrow.getUserName();
+		User myuser = userDAO.findByName(userName);
+		int userNo = myuser.getUserNo();
+		Date now = new Date();
+		Calendar calendar=Calendar.getInstance();   
+		calendar.set(Calendar.DAY_OF_MONTH,calendar.get(Calendar.DAY_OF_MONTH)+30);//让日期加30 
+		Date returnDate = calendar.getTime();
+		borrow.setUserNo(userNo);
+		borrow.setBorrowDate(now);
+		borrow.setReturnDate(returnDate);
+		borrowDAO.save(borrow);
+		
+	}
+
+
+	@Override
+	public List<Borrow> getBorrows() throws Exception {
+		return borrowDAO.getBorrows();
+	}
+	
+	
 
 }
