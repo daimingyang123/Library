@@ -23,10 +23,5 @@
 	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.hibernate.MYECLIPSE_HIBERNATE3_3_EM"/>
 	<classpathentry kind="con" path="melibrary.com.genuitec.eclipse.hibernate.MYECLIPSE_HIBERNATE3_3_CORE"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/mysql-connector-java-5.1.29-bin.jar"/>
-	<classpathentry kind="lib" path="/Users/daimingyang/Downloads/mail.jar/mail.jar"/>
-	<classpathentry kind="lib" path="/Users/daimingyang/Downloads/smtp.jar"/>
-	<classpathentry kind="lib" path="/Users/daimingyang/Downloads/servlet.jar/servlet.jar"/>
-	<classpathentry kind="lib" path="/Users/daimingyang/Downloads/quartz.jar/quartz.jar"/>
-	<classpathentry kind="lib" path="/Users/daimingyang/Downloads/commons-email-1.2/commons-email-1.2.jar"/>
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

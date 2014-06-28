@@ -25,7 +25,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <div class="header" id="table">
   <table width="100%" border="0">
    <tr>
-      <th width="25%" scope="col"><a href="header.jsp" class="pic"><img src="img/5.png" width="150" height="47" /></a></th>
+      <th width="25%" scope="col"><a href="index.jsp" class="pic"><img src="img/5.png" width="150" height="47" /></a></th>
       <th width="81%"  scope="col">&nbsp;</th>
       
    </tr>
@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <td><a href="#" >機能</a></td>
     <td><a href="UserSaying.jsp" >利用者の意見</a></td>
     <td><a href="#" >使用説明書</a></td>
-    <td><a href="" >私達について</a></td>
+    <td><a href="#" >私達について</a></td>
  	</tr>
   	<tr align="center">
     <td><a href="DatabaseSecurity.jsp" >データセキュリティ</a></td>

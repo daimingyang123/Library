@@ -1,6 +1,7 @@
 package com.entity;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -16,6 +17,7 @@ public class Book implements java.io.Serializable {
 	private String plot;
 	private String state;
 	private Set borrows = new HashSet(0);
+	private List<Book> books;
 
 	// Constructors
 
@@ -75,6 +77,13 @@ public class Book implements java.io.Serializable {
 
 	public void setState(String state) {
 		this.state = state;
+	}
+	
+	public void setBooks(List<Book> books){
+		this.books=books;
+	}
+	public List<Book> getBooks(){
+		return books;
 	}
 
 }

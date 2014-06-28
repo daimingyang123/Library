@@ -19,7 +19,9 @@ public class AddBookAction extends ModelAction<Book>{
 //			BookServiceInter bookServiceInter = serviceManager.getBookServiceInter();
 			ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 			BookServiceInter bookServiceInter = (BookServiceInter) ctx.getBean("bookService");
+//			System.out.println(model.getTitle());
 			bookServiceInter.addBook(model, session, context);
+
 			return SUCCESS;
 		}
 		catch (Exception e)

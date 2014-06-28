@@ -118,17 +118,18 @@ public class BookDAO extends BaseHibernateDAO implements BookDAOInter {
 //		ApplicationContext ctx = new ClassPathXmlApplicationContext(
 //				"applicationContext.xml");
 //		BookDAO bookDAO = (BookDAO) ctx.getBean("bookDAO");
-////		Book mybook = new Book;
+//		Book mybook = new Book;
 //		Book mybook = bookDAO.findbyTitle("1");
-////		Book book = new Book();
-////		book.setTitle("fuck");
-////		book.setPlot("shit");
-////		book.setState("zaijia");
-////		bookDAO.save(book);
-////		List<Book> mybook = bookDAO.getBooks(0, 3);
-//		System.out.println(mybook.getBookNo());
-////		bookDAO.delete(mybook);
+//		Book book = new Book();
+//		book.setTitle("fuck");
+//		book.setPlot("shit");
+//		book.setState("zaijia");
+//		bookDAO.save(book);
+//		List<Book> mybook = bookDAO.getBooks(0, 3);
 //		
+//		System.out.println(mybook.get(1).getPlot());
+//		bookDAO.delete(mybook);
+		
 //	}
 
 	

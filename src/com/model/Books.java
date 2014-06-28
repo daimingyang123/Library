@@ -7,11 +7,13 @@ import com.entity.Book;
 
 public class Books {
 //	 private String username;
-	 private int everyPageCount = 10;
+	 private int everyPageCount = 15;
 	 private long count;
 	 private int pageCount;
 	 private List<Book> books;
 	 private int pageIndex = 1;
+	 private int currentPage;
+	 
 	 public int getPageIndex() {
 		return pageIndex;
 	}
@@ -41,6 +43,12 @@ public class Books {
 	}
 	public void setBooks(List<Book> books) {
 		this.books = books;
+	}
+	public int getCurrentPage() {
+		return currentPage;
+	}
+	public void setCurrentPage(int currentPage) {
+		this.currentPage = currentPage;
 	}
 	
 }

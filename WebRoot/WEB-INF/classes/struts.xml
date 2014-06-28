@@ -1,39 +1,55 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-	<package name="default" namespace="/" extends="struts-default">
-		<action name="main"  class="com.action.GetBooksAction">
-			<result name="success">/booklist.jsp</result> 
-			<result name="input">/error.jsp</result>
+		<package name="default" namespace="/" extends="struts-default">
+		<action name="adminLogin"  class="com.action.AdminAction">
+			<result type="chain">admin</result>
+			<result name="error">/admin.jsp</result>
 		</action>
-		<action name="addBook"  class="com.action.AddBookAction">
-			<result name="success">/loginsuccess.jsp</result> 
-			<result name="input">/admin.jsp</result>
-		</action>
-		<action name="borrow"  class="com.action.BorrowBookAction">
-			<result name="success">loginsuccess.jsp</result> 
-			<result name="input">/admin.jsp</result>
-		</action>
-		<action name="return"  class="com.action.ReturnBookAction">
-			<result name="success">/loginsuccess.jsp</result> 
-			<result name="input">/admin.jsp</result>
+		<action name="admin"  class="com.action.GetBooksAction">
+			<result name="success">/adminbooklist.jsp</result> 
+			<result name="error">/error.jsp</result>
 		</action>
 		<action name="login"  class="com.action.LoginAction">
-			<result name="success">/loginsuccess.jsp</result> 
-			<result name="input">/error.jsp</result>
+			<result type="chain">user</result>
+			<result name="error">/user.jsp</result>
 		</action>
-		<action name="adminLogin"  class="com.action.AdminAction">
-			<result name="success">/loginsuccess.jsp</result> 
-			<result name="input">/error.jsp</result>
+		<action name="user"  class="com.action.GetBooksAction">
+			<result name="success">/userbooklist.jsp</result> 
+			<result name="error">/error.jsp</result>
+		</action>
+		<action name="addBook"  class="com.action.AddBookAction">
+			<result name="success">/adminbooklist.jsp</result> 
+			<result name="input">/addbook.jsp</result>
+		</action>
+		<action name="borrow"  class="com.action.BorrowBookAction">
+			<result name="success">/adminbooklist.jsp</result> 
+			<result name="input">/borrowbook.jsp</result>
+		</action>
+		<action name="return"  class="com.action.ReturnBookAction">
+			<result name="success">/adminbooklist.jsp</result> 
+			<result name="input">/returnbook.jsp</result>
 		</action>
 		<action name="addUser"  class="com.action.AddUserAction">
-			<result name="success">/loginsuccess.jsp</result> 
+			<result name="success">/adminbooklist.jsp</result> 
 			<result name="input">/adduser.jsp</result>
 		</action>
 		<action name="borrowOrder"  class="com.action.BorrowOrderAction">
-			<result name="success">/loginsuccess.jsp</result> 
-			<result name="input">/adduser.jsp</result>
+			<result name="success">/adminbooklist.jsp</result> 
+			<result name="input">/borrowbook.jsp</result>
 		</action>
+		<action name="findBook"  class="com.action.FindBookAction">
+			<result name="success">/userbooklist.jsp</result> 
+			<result name="input">/userbooklist.jsp</result>
+		</action>
+		<action name="orderBook"  class="com.action.OrderBookAction">
+			<result name="success">/userbooklist.jsp</result> 
+			<result name="input">/userbooklist.jsp</result>
+		</action>
+		<action name="logout"  class="com.action.LogoutAction">
+			<result name="success">/loginFalse.jsp</result> 
+		</action>
+		
 		
 		
 	</package>

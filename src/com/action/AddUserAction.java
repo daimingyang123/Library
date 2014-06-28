@@ -14,8 +14,15 @@ import com.service.inter.UserServiceInter;
 public class AddUserAction extends  ActionSupport {
 	String result;
 	String userName;
+	String email;
 	User newUser;
 	Integer userNo;
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getUserName(){
 		return userName;
 	}
@@ -33,15 +40,15 @@ public class AddUserAction extends  ActionSupport {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		UserServiceInter userServiceInter = (UserServiceInter) ctx.getBean("UserService");
 		try {
-			newUser=userServiceInter.addUser(userNo,userName);
+			newUser=userServiceInter.addUser(userNo,userName,email);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		if(newUser!=null){
 			
-			HttpServletRequest request = ServletActionContext.getRequest();
-			request.setAttribute(userName, newUser.getUserName());
+//			HttpServletRequest request = ServletActionContext.getRequest();
+//			request.setAttribute(userName, newUser.getUserName());
 			
 			return SUCCESS;
 		}

@@ -10,7 +10,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <title>司書登録</title>
-    
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -19,12 +18,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <link rel="stylesheet" type="text/css" href="css/admin.css"></link>
     <link rel="stylesheet" type="text/css" href="css/header1.css"></link>
 </head>
-  
-  <body>
-      <div class="header" id="table">
+<body>
+<div class="header" id="table">
   <table width="100%" border="0">
-   <tr>
-      <th width="25%" scope="col"><a href="header.jsp" class="pic"><img src="img/5.png" width="150" height="47" /></a></th>
+    <tr>
+      <th width="25%" scope="col"><a href="index.jsp" class="pic"><img src="img/5.png" width="150" height="47" /></a></th>
       <th width="50%"  scope="col">&nbsp;</th>
       <th width="10%"  scope="col"><a href="admin.jsp" class="text"><span>司書</span></a></th>
       <th width="10%"  scope="col"><a href="user.jsp" class="text"><span>利用者</span></a></th>
@@ -32,28 +30,36 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </tr>
   </table>
 </div>
-    <div class="div2">
+  <div class="div2">
     <div class="div2_1">
-    <img src="img/ad2.png"></img>
+    <img src="img/admin.jpg"></img>
     </div>
-    <form name="form" action="adminLogin.action"  method="post">
     <div class="div2_2" >
-    <input class="input1" type="text"name="admin" placeholder="司書No入力し"/>
-    <input class="input2" type="password"name="password"/>
-    <input class="input3" type="button" onclick="submit()" value="登録" name="getuser"/>
+    <form class="contact_form" action="adminLogin" method="post" name="contact_form">
+		<ul>
+			<li>
+				<label for="name">司書No:</label>
+				<input type="text" name="admin" placeholder="司書No入力し" required pattern="^[0-9]*$"/>
+				<span class="form_hint">数字のみ</span>
+			</li>
+			<li>
+				<label for="name">司書名:</label>
+				<input type="text" name="password" placeholder="司書名入力し" required pattern="^[\u4E00-\u9FFF]+$"/>
+				<span class="form_hint">漢字</span>
+		   </li>
+			<p>
+			${error}
+           </p>
+           <li>
+				<button class="submit" type="submit">ログイン</button>
+				<button class="submit1" type="reset">リセット</button>
+			</li>
+		</ul>
+	</form>
     </div>
-    </form>
-	<script type="text/javascript">
-    function submit()
-    {
-        form.submit();
-        
-    }
-	</script> 
     
     </div>
-   
-   <div class="div5">
+    <div class="div5">
 	<table width="100%" cellpadding="5" border="50px" bordercolor="#ECF0F5">
  	<tr align="center">
     <th scope="col">製品</th>
@@ -65,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <td><a href="#" >機能</a></td>
     <td><a href="UserSaying.jsp" >利用者の意見</a></td>
     <td><a href="#" >使用説明書</a></td>
-    <td><a href="" >私達について</a></td>
+    <td><a href="#" >私達について</a></td>
  	</tr>
   	<tr align="center">
     <td><a href="DatabaseSecurity.jsp" >データセキュリティ</a></td>

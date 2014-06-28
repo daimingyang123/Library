@@ -10,49 +10,58 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <base href="<%=basePath%>">
     
     <title>書籍登録</title>
-    
-	<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
 	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 	<meta http-equiv="description" content="This is my page">
-	<link rel="stylesheet" href="css/addbook.css" type="text/css"></link>
+    <link rel="stylesheet" type="text/css" href="css/adduser.css"></link>
     <link rel="stylesheet" type="text/css" href="css/header1.css"></link>
 </head>
-  
-  <body>
-      <div class="header" id="table">
+<body>
+<div class="header" id="table">
   <table width="100%" border="0">
-   <tr>
-      <th width="25%" scope="col"><a href="header.jsp" class="pic"><img src="img/5.png" width="150" height="47" /></a></th>
-      <th width="12%"  scope="col"><a href="loginsuccess.jsp" class="text"><span>蔵書一覧</span></a></th>
-      <th width="15%"  scope="col"><a href="borrowBook.jsp" class="text"><span>書籍貸出し</span></a></th>
-      <th width="12%"  scope="col"><a href="backBook.jsp" class="text"><span>書籍返却</span></a></th>
+    <tr>
+        <th width="20%" scope="col"><a href="index.jsp" class="pic"><img src="img/5.png" width="150" height="47" /></a></th>
+      <th width="12%"  scope="col"><a href="admin.action" class="text"><span>一覧</span></a></th>
+      <th width="15%"  scope="col"><a href="borrowbook.jsp" class="text"><span>書籍貸出し</span></a></th>
+      <th width="12%"  scope="col"><a href="returnbook.jsp" class="text"><span>書籍返却</span></a></th>
       <th width="15%"  scope="col"><a href="adduser.jsp" class="text"><span>利用者登録</span></a></th>
       <th width="12%"  scope="col"><a href="addbook.jsp" class="text"><span>書籍登録</span></a></th>
       <th width="5%"  scope="col">&nbsp;</th>
-      <th width="11%"  scope="col"><img src="img/admin.png" width="60" height="49" /></th>
+       <th width="11%"  scope="col"><span>${userName}<span></th>
+      <th><button class="submit2" type="submit">終了</button></th>
    </tr>
   </table>
 </div>
-    <div class="div2">
+  <div class="div2">
     <div class="div2_1">
-    <img src="img/ad1.JPG"><input type="button" onclick="submit()" value="書籍登録" name="getinf">
+    <img src="img/book.jpg"></img>
     </div>
-    <form name="form" action="addBook.action"  method="post">
-    <div class="div2_2">
-    <input class="input1" type="text"name="bookNo" disabled="disabled" placeholder="bookNoは入力せずに,自動生成された"/>
-    <input class="input2" type="text"name="title" placeholder="書籍名入力し"/>
-    <textarea name="plot" placeholder="プロット入力し" ></textarea>
+    <div class="div2_2" >
+    <form class="contact_form" action="addBook" method="post" name="contact_form">
+		<ul>
+			<li>
+				<label for="name">書籍No:</label>
+				<input type="text" name="bookNo" placeholder="書籍No入力し" required pattern="^[0-9]*$"/>
+				<span class="form_hint">数字のみ</span>
+			</li>
+			<li>
+				<label for="name">書籍名:</label>
+				<input type="text" name="title" placeholder="書籍名入力し" required />
+				<span class="form_hint">タイトル</span>
+			</li>
+			<li>
+				<label for="name">プロット:</label>
+				<input type="text" name="plot" placeholder="プロット入力し" required/>
+			</li>
+			<li>
+				<button class="submit" type="submit">登録</button>
+				<button class="submit1" type="reset">リセット</button>
+			</li>
+</ul>
+	</form>
     </div>
-    </form>
-	<script type="text/javascript">
-    function submit()
-    {
-        form.submit();
-        
-    }
-	</script> 
     </div>
     <div class="div5">
 	<table width="100%" cellpadding="5" border="50px" bordercolor="#ECF0F5">
@@ -66,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <td><a href="#" >機能</a></td>
     <td><a href="UserSaying.jsp" >利用者の意見</a></td>
     <td><a href="#" >使用説明書</a></td>
-    <td><a href="" >私達について</a></td>
+    <td><a href="#" >私達について</a></td>
  	</tr>
   	<tr align="center">
     <td><a href="DatabaseSecurity.jsp" >データセキュリティ</a></td>
@@ -96,4 +105,3 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     </div>
   </body>
 </html>
-

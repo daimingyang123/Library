@@ -7,7 +7,6 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 
-import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
 @SuppressWarnings("serial")
@@ -44,13 +43,14 @@ public class AdminAction extends ActionSupport {
         properties = new Properties();  
         properties.load(in);
         if((admin.equals(getdefaultAdminname()) && password.equals(getdefaultAdminpassword())) ){
-            ActionContext.getContext().getSession().put(admin,"admin");
+            HttpSession session = ServletActionContext.getRequest().getSession();
+			session.setAttribute("userName", "admin");
             return SUCCESS;
 		}
 		else{
 			HttpSession session = ServletActionContext.getRequest().getSession();
-			session.setAttribute("error", "password wrong��");
-		return INPUT;
+			session.setAttribute("error", "ユーザー名やパスワードエラー");
+			return ERROR;
 		}
 		}
 }

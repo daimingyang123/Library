@@ -22,9 +22,8 @@ public class LoginAction extends  ModelAction<User> {
 			UserServiceInter userServiceInter = (UserServiceInter) ctx.getBean("UserService");
 			if(userServiceInter.verifyUser(model))
 				{
-					HttpSession session = ServletActionContext.getRequest().getSession();
-					session.setAttribute("userName", model.getUserName());
-					result="用户登录成功";
+//					HttpSession session = ServletActionContext.getRequest().getSession();
+//					session.setAttribute("userName", model.getUserName());
 					return SUCCESS;
 				}
 			
@@ -33,8 +32,9 @@ public class LoginAction extends  ModelAction<User> {
 		catch(Exception e){
 			e.printStackTrace();
 		}
-		result="用户登录失败";
-		return INPUT;
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		session.setAttribute("error", "ユーザー名やパスワードエラー");
+		return ERROR;
 	}
 
 

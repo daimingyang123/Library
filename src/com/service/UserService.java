@@ -40,7 +40,7 @@ public class UserService implements UserServiceInter {
 
 	@SuppressWarnings("null")
 	@Override
-	public User addUser(Integer userNo,String userName) throws Exception {
+	public User addUser(Integer userNo,String userName,String email) throws Exception {
 		// TODO Auto-generated method stub
 		addDbUser=new User();
 		if(userName==null&&userName.length()==0){
@@ -49,6 +49,7 @@ public class UserService implements UserServiceInter {
 		if(userName!=null&&userName.length()!=0){
 			addDbUser.setUserNo(userNo);
 			addDbUser.setUserName(userName);
+			addDbUser.setEmail(email);
 			userDAO.save(addDbUser);
 			return userDAO.findByName(userName);
 		}

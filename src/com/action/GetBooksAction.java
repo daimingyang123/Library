@@ -16,17 +16,23 @@ public class GetBooksAction extends ModelAction<Books>{
 	{
 		try
 		{
-
+			
 //			BookServiceInter bookServiceInter = serviceManager.getBookServiceInter();
 			ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 			BookServiceInter bookServiceInter = (BookServiceInter) ctx.getBean("bookService");
+			int pageIndex = 1;
+			model.setCurrentPage(pageIndex);
 			model.setCount(bookServiceInter.getBookCount());
 			int div =  (int) model.getCount() / model.getEveryPageCount();
 			model.setPageCount((model.getCount() % model.getEveryPageCount() == 0)?div:div+1);
 			model.setBooks(bookServiceInter.getBooks(model.getPageIndex(),
 					model.getEveryPageCount()));
+//			if(session.getAttribute("user")=="admin"){
+				return SUCCESS;
+//			}else{
+//				return INPUT;
+//			}
 			
-			return SUCCESS;
 
 		}
 		catch (Exception e)
