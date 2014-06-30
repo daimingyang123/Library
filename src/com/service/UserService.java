@@ -1,5 +1,7 @@
 package com.service;
 
+import java.util.List;
+
 import com.dao.UserDAO;
 import com.entity.User;
 import com.service.inter.UserServiceInter;
@@ -59,6 +61,17 @@ public class UserService implements UserServiceInter {
 	@Override
 	public User findByNo(Integer userNo) throws Exception {
 		return userDAO.findByNo(userNo);
+	}
+
+	@Override
+	public List<User> getUsers(int pageIndex, int EverypageCount) throws Exception {
+		// TODO Auto-generated method stub
+		return userDAO.getUsers((pageIndex - 1) * EverypageCount, EverypageCount);
+	}
+
+	@Override
+	public long getUserCount() throws Exception {
+		return userDAO.getUserCount();
 	}
 	
 	//test

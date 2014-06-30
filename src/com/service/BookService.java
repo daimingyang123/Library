@@ -43,6 +43,7 @@ public class BookService implements BookServiceInter{
 		return bookDAO.findByNo(No);
 	}
 
+	@Override
 	public List<Book> findBook(Book book, HttpSession session,
 			ServletContext servletContext) throws Exception {
 		// TODO Auto-generated method stub
@@ -51,32 +52,18 @@ public class BookService implements BookServiceInter{
 	
 	@SuppressWarnings("null")
 	public boolean orderBook(List<Book> books,HttpSession session,ServletContext servletContext) throws Exception{
-		
+		if(books==null){System.out.println("boos is null");}
 		if(books != null || books.size()!=0){
 			for(int i=0;i<books.size();i++){
-				if(books.get(i).getState()=="在架可借"){
+				if(books.get(i).getState().equals("在架可借")){
 					books.get(i).setState("已预约");
 					bookDAO.save(books.get(i));
+					System.out.println(books.get(i).getTitle());
 					return true;
 				}
 			}
 		}
-		System.out.println("fuck");
 		return false;
 	}
 
-//	public static void main(String args[]) throws Exception {
-//	ApplicationContext ctx = new ClassPathXmlApplicationContext(
-//			"applicationContext.xml");
-//	BookServiceInter bookServiceInter = (BookServiceInter) ctx.getBean("bookService");
-//	HttpSession session = null;
-//	ServletContext context = null;
-//	Book book = new Book();
-//	book.setTitle("1");
-//	List<Book> books = bookServiceInter.findBook(book, session, context);
-//	for(int i =0;i<books.size();i++){
-//		
-//	System.out.println(books.get(i).getBookNo());
-//	}
-//}
 }

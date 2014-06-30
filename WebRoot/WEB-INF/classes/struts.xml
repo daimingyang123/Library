@@ -2,9 +2,35 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
 		<package name="default" namespace="/" extends="struts-default">
+		
+		<!-- 增加拦截器 -->
+	<interceptors>  
+           <!--  添加登陆拦截器   -->
+            <interceptor name="loginValidate" class="com.interceptor.LoginInterceptor"/>  
+           <!--  新建一个站，把登陆拦截器和默认的站放进去   -->
+            <interceptor-stack name="loginstack">  
+                <interceptor-ref name="defaultStack"/>  
+                <interceptor-ref name="loginValidate"/>  
+            </interceptor-stack>  
+        </interceptors> 
+        
+        <!-- 修改默认拦截器   -->
+        <default-interceptor-ref name="loginstack"/>
+        
+      <!--   定义全局Result   -->
+        <global-results>  
+           <!--  当返回login视图名时，转入/login.jsp页面   -->
+            <result name="login">/user.jsp</result>  
+        </global-results>
+        
+		
 		<action name="adminLogin"  class="com.action.AdminAction">
 			<result type="chain">admin</result>
 			<result name="error">/admin.jsp</result>
+			
+		<interceptor-ref name="loginstack">
+			<param name="loginValidate.excludeMethods">execute</param>
+			</interceptor-ref>
 		</action>
 		<action name="admin"  class="com.action.GetBooksAction">
 			<result name="success">/adminbooklist.jsp</result> 
@@ -13,21 +39,25 @@
 		<action name="login"  class="com.action.LoginAction">
 			<result type="chain">user</result>
 			<result name="error">/user.jsp</result>
+			<!-- 使过滤器 失效-->
+			<interceptor-ref name="loginstack">
+			<param name="loginValidate.excludeMethods">execute</param>
+			</interceptor-ref>
 		</action>
 		<action name="user"  class="com.action.GetBooksAction">
 			<result name="success">/userbooklist.jsp</result> 
 			<result name="error">/error.jsp</result>
 		</action>
 		<action name="addBook"  class="com.action.AddBookAction">
-			<result name="success">/adminbooklist.jsp</result> 
+			<result type="chain">admin</result> 
 			<result name="input">/addbook.jsp</result>
 		</action>
 		<action name="borrow"  class="com.action.BorrowBookAction">
-			<result name="success">/adminbooklist.jsp</result> 
+			<result name="success">/borrowbook.jsp</result> 
 			<result name="input">/borrowbook.jsp</result>
 		</action>
 		<action name="return"  class="com.action.ReturnBookAction">
-			<result name="success">/adminbooklist.jsp</result> 
+			<result name="success">/returnbook.jsp</result> 
 			<result name="input">/returnbook.jsp</result>
 		</action>
 		<action name="addUser"  class="com.action.AddUserAction">
@@ -35,7 +65,7 @@
 			<result name="input">/adduser.jsp</result>
 		</action>
 		<action name="borrowOrder"  class="com.action.BorrowOrderAction">
-			<result name="success">/adminbooklist.jsp</result> 
+			<result type="chain">admin</result>
 			<result name="input">/borrowbook.jsp</result>
 		</action>
 		<action name="findBook"  class="com.action.FindBookAction">
@@ -47,9 +77,16 @@
 			<result name="input">/userbooklist.jsp</result>
 		</action>
 		<action name="logout"  class="com.action.LogoutAction">
-			<result name="success">/loginFalse.jsp</result> 
+			<result name="success">/user.jsp</result> 
 		</action>
-		
+		<action name="getborrows"  class="com.action.GetBorrowsAction">
+			<result name="success">/myBorrow.jsp</result>
+			<result name="input">/myBorrow.jsp</result> 
+		</action>
+		<action name="getUsers"  class="com.action.GetUserAction">
+			<result name="success">/adminbooklist.jsp</result> 
+			<result name="input">/adminbooklist.jsp</result>
+		</action>
 		
 		
 	</package>

@@ -45,6 +45,7 @@ public class ModelAction<Model> extends ActionSupport implements ModelDriven<Mod
 
 	public String getResult()
 	{
+		result = "fuck";
 		return result;
 	}
 }

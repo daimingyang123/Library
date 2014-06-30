@@ -30,7 +30,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <th width="15%"  scope="col"><a href="myHome.jsp" class="text"><span>ホームページ</span></a></th>
       <th width="70%"  scope="col">&nbsp;</th>
       <th width="11%"  scope="col">${userName}</th>
-      <th><button class="submit2" type="submit">終了</button></th>
+      <th><a href="logout.action"><button class="submit2" type="submit">終了</button></a></th>
     </tr>
     </table>
 	</div>

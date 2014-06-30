@@ -1,5 +1,6 @@
 package com.service;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -13,6 +14,7 @@ import com.dao.UserDAO;
 import com.entity.Book;
 import com.entity.Borrow;
 import com.entity.User;
+import com.model.BookMsg;
 import com.service.inter.BorrowServiceInter;
 
 public class BorrowService implements BorrowServiceInter{
@@ -103,6 +105,36 @@ public class BorrowService implements BorrowServiceInter{
 	@Override
 	public List<Borrow> getBorrows() throws Exception {
 		return borrowDAO.getBorrows();
+	}
+
+
+	@Override
+	public List<BookMsg> getBorrows(Integer userNo) throws Exception {
+		// TODO Auto-generated method stub
+		List<Borrow> borrowList = borrowDAO.findByUserNo(userNo);
+//		BookMsg borrowBookMsg=new BookMsg();
+		List<BookMsg> borrowBookMsgList = new ArrayList<BookMsg>();
+		if(borrowList==null){
+			return null;}
+		System.out.println("BorrowService--before enter for");
+		for(int i=0;i<borrowList.size();i++){
+			BookMsg borrowBookMsg=new BookMsg();
+			borrowBookMsg.setBookNo(borrowList.get(i).getBookNo());
+			borrowBookMsg.setUserNo(borrowList.get(i).getUserNo());
+			borrowBookMsg.setBorrowDate(borrowList.get(i).getBorrowDate());
+			borrowBookMsg.setReturnDate(borrowList.get(i).getReturnDate());
+			borrowBookMsg.setBorrowId(borrowList.get(i).getId());
+			System.out.println("BorrowService--borrowBookMsg--bookNo: "+borrowList.get(i).getBookNo());
+			Book book =bookDAO.findByNo(borrowList.get(i).getBookNo());
+			borrowBookMsg.setTitle(book.getTitle());
+			borrowBookMsg.setPlot(book.getPlot());
+			borrowBookMsg.setState(book.getState());
+			borrowBookMsgList.add(borrowBookMsg);
+			System.out.println("BorrowService--borrowBookMsgList--bookNo: "+borrowBookMsgList.get(i).getBookNo()+"   "+i);
+		}
+		for(int i=0;i<borrowBookMsgList.size();i++){
+		System.out.println("BorrowService--borrowBookMsgList--Time2--bookNo: "+borrowBookMsgList.get(i).getBookNo()+"    "+i);}
+		return borrowBookMsgList;
 	}
 	
 	

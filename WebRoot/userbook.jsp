@@ -28,66 +28,68 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   <table width="100%" border="0">
     <tr>
       <th width="25%" scope="col"><a href="index.jsp" class="pic"><img src="img/5.png" width="150" height="47" /></a></th>
-      <th width="12%"  scope="col"><a href="user.action" class="text"><span>蔵書一覧</span></a></th>
-      <th width="15%"  scope="col"><a href="myHome.jsp" class="text"><span>ホームページ</span></a></th>
+      <th width="12%"  scope="col"><a href="userbooklist.jsp" class="text"><span>蔵書一覧</span></a></th>
+      <th width="15%"  scope="col"><a href="myhome.jsp" class="text"><span>ホームページ</span></a></th>
       <th width="70%"  scope="col">&nbsp;</th>
-      <th><a href="logout.action"><button class="submit2" type="submit">終了</button></a></th>
+      <th><button class="submit2" type="submit">終了</button></th>
    </tr>
   </table>
 </div>
 <div class="search">
 <div class="search2">
- <form class="contact_form" action="" method="post"  name="contact_form">
+ <form class="contact_form" action="getUsers" method="post" name="contact_form">
 		<ul>
 			<li>
 				<label for="name"><img src="img/search2.jpg" style="height: 40px; width: 50px;  margin-top:20px; "></img></label>
 				<input type="text" name="title" placeholder="書籍名入力し" style="height: 40px; width:350 px;  "/>
-		        <button class="submit" type="submit" onclick="contact_form.action='findBook';contact_form.submit();">find</button>
-		        <button class="submit" type="submit" onclick="contact_form.action='orderBook';contact_form.submit();">order</button>
-		        <!--  <a href="orderBook.action"><button>order</button></a> -->
-		    </li>
+		        <button class="submit" type="submit">find</button>
+					
+				
+				
+			</li>
 		</ul>
 	</form>
-	${login.result}
+  
 	</div>
-<table width="80%"  align="center" >
+	
+
+<table width="80%" border="1" align="center" >
 <tr>
 
 			<th scope="col" width="20%" align="left" >bookNo</th>
 			<th scope="col" width="10%" align="left" >state</th>
 			<th scope="col" width="30%" align="left" >title</th>
 		    <th scope="col" width="30%" align="left" >plot</th>
-		   
+		    <th scope="col" width="10%" align="center" ><a href="orderBook.action"><button>order</button></a></th>
 	    
 </tr>
 </table>
-<s:iterator id="book" value="books" status="status">
-<table width="80%" align="center" >
+<s:iterator id="user" value="users" status="status">
+<table algin="center">
 <tr class="<s:if test="#status.even">row-even</s:if><s:else>row-odd</s:else>">
 
-			<th scope="col" width="20%" align="left" >${book.bookNo}</th>
-			<th scope="col" width="10%" align="left" >${book.state}</th>
-			<th scope="col" width="30%" align="left" >${book.title}</th>
+			<th scope="col" width="20%" align="left" >${user.userNo}</th>
+			<th scope="col" width="10%" align="left" >${user.userName}</th>
+			<th scope="col" width="30%" align="left" >${user.email}</th>
 		    <th scope="col" width="30%" align="left" >${book.plot}</th>
-		 
 	    
 </tr>
 </table>			
 </s:iterator> 
 <div class="fanye">
-<form  name="AddStudentForm"  action="user.action" method="post" align="center" >
+<form  name="AddStudentForm"  action="main1.action" method="post" align="center" >
   第${pageIndex}页&nbsp;
   共${pageCount}页&nbsp;
-  <a href="user.action?pageIndex=1">首页</a>
+  <a href="main1.action?pageIndex=1">首页</a>
   <logic:greaterThan name="pageIndex" scope="request" value="1">
-      <a href="user.action?pageIndex=${pageIndex - 1}">上一页</a>
+      <a href="main1.action?pageIndex=${pageIndex - 1}">上一页</a>
   </logic:greaterThan>
   
   <logic:lessThan name="pageIndex" scope="request" value="${requestScope.pageCount}">
-       <a href="user.action?pageIndex=${requestScope.pageIndex + 1}">下一页</a>
+       <a href="main1.action?pageIndex=${requestScope.pageIndex + 1}">下一页</a>
   </logic:lessThan>
   
-  <a href="user.action?pageIndex=${requestScope.pageCount}">尾页</a>&nbsp;跳到<input size="4" type="text" name="pageIndex" id="pageIndex"/>页 <input type="submit" value="go" />
+  <a href="main1.action?pageIndex=${requestScope.pageCount}">尾页</a>&nbsp;跳到<input size="4" type="text" name="pageIndex" id="pageIndex"/>页 <input type="submit" value="go" />
 </form>
 </div>
 </div>

@@ -48,7 +48,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<span class="form_hint">漢字</span>
 			</li>
 		<p>
-			${error}
+			${usererror}
        </p>
 			<li>
 				<button class="submit" type="submit">ログイン</button>

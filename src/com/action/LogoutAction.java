@@ -2,11 +2,14 @@ package com.action;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 import com.entity.User;
+import com.service.inter.UserServiceInter;
 
 //import com.opensymphony.xwork2.ActionSupport;
 
-@SuppressWarnings("serial")
 public class LogoutAction extends ModelAction<User> {
 	
 	public LogoutAction(){
@@ -21,6 +24,7 @@ public class LogoutAction extends ModelAction<User> {
 		try{
 		HttpSession session = request.getSession();
 		session.invalidate();
+		System.out.println("logoutaction--已注销登录! session已被销毁");
 		}catch(Exception e){
 			e.printStackTrace();
 		}

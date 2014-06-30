@@ -1,6 +1,7 @@
-#Wed Jun 25 10:31:25 CST 2014
+#Mon Jun 30 16:22:34 CST 2014
 eclipse.preferences.version=1
 encoding//src/com/action/AdminAction.java=UTF-8
+encoding//src/com/action/GetBorrowsAction.java=UTF-8
 encoding//src/com/action/LoginAction.java=UTF-8
 encoding//src/com/action/ReturnBookAction.java=UTF-8
 encoding//src/com/service/BookService.java=UTF-8

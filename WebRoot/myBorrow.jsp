@@ -1,4 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -30,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <th width="15%"  scope="col"><a href="myHome.jsp" class="text"><span>ホームページ</span></a></th>
       <th width="70%"  scope="col">&nbsp;</th>
       <th width="11%"  scope="col">${userName}</th>
-      <th><button class="submit2" type="submit">終了</button></th>
+      <th><a href="logout.action"><button class="submit2" type="submit">終了</button></a></th>
     </tr>
     </table>
 	</div>
@@ -44,12 +45,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="left_2">
 	<table width="100%">
 	<tr><td><a href="myHome.jsp" ><img src="img/an1.png"></img><font class="font2l">読者情報セット</font></a></td></tr>
-	<tr><td><a href="myBorrow.jsp" style="color:blue;"><img src="img/an2.jpg"></img><font class="font2l">返却情報</font></a></td></tr>
+	<tr><td><a href="getborrows.action" style="color:blue;"><img src="img/an2.jpg"></img><font class="font2l">返却情報</font></a></td></tr>
 	<tr><td><a href="myOrder.jsp" ><img src="img/an3 .jpg"></img><font class="font2l">予約情報</font></a></td></tr>
 	</table>
 	</div>
 	</div>
 	<div class="right">
+	
+	<!-- 可根据需要进行打印信息---美化界面 -->
+	
+	<s:iterator id="booklist" value="bookMsgList" status="status">
+    <table>
+    <tr class="<s:if test="#status.even">row-even</s:if><s:else>row-odd</s:else>">
+
+			<th scope="col" width="20%" align="left" >${booklist.bookNo}</th>
+			<th scope="col" width="10%" align="left" >${booklist.state}</th>
+			<th scope="col" width="30%" align="left" >${booklist.title}</th>
+		    <th scope="col" width="30%" align="left" >${booklist.plot}</th>
+	    
+   </tr>
+   </table>			
+   </s:iterator> 
 	
 	</div>
 

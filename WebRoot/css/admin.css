@@ -8,8 +8,7 @@ body {font: 20px/30px "Lucida Sans", "Lucida Grande", "Lucida Sans Unicode", san
 .form_hint, .required_notification {font-size: 20px;}
 
 /* === List Styles === */
-.contact_form p{
-	font-size:20px;
+.contact_form dt{
 	text-align: center;	
 	color:red;
 }

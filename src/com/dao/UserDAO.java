@@ -117,6 +117,11 @@ public class UserDAO extends DAOSupport implements UserDAOInter {
 			return null;
 		}
 	
+	 @SuppressWarnings("rawtypes")
+	public long getUserCount() throws Exception {
+			List count =  template.find("select count(*) from User ");		
+			return ((Long)count.get(0)).longValue();
+		}
 	 
 	 // function test
 	public static void main(String args[]) throws Exception {
