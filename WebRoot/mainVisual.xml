@@ -1,14 +1,14 @@
-<?xml version='1.0' encoding='euc-kr'?>
+<?xml version='1.0' encoding='utf-8'?>
 <contentsRotator>
-<item order='1' category='E' type='image' title='00000000' image='zsimg/1.gif' source='http://www.baidu.com' target='_self' />
-<item order='2' category='E' type='image' title='111111111' image='zsimg/01.gif' source='http://www.baidu.com' target='_self' />
-<item order='3' category='E' type='image' title='22222222' image='zsimg/01.gif' source='http://www.baidu.com' target='' />
-<item order='4' category='E' type='image' title='333333333' image='zsimg/01.gif' source='http://www.baidu.com' target='_self' />
-<item order='5' category='E' type='image' title='4444444' image='zsimg/01.gif' source='http://www.baidu.com' />
-<item order='6' category='S' type='image' title='5555555' image='zsimg/01.gif' source='http://www.baidu.com' target='' />
-<item order='7' category='S' type='video' title='666666666' image='zsimg/01.gif' source='http://www.baidu.com' />
-<item order='8' category='S' type='video' title='7777777777' image='zsimg/01.gif' source='http://www.baidu.com' />
-<item order='9' category='B' type='image' title='8888888888' image='zsimg/01.gif' source='http://www.baidu.com' target='' />
-<item order='10' category='B' type='image' title='99999999' image='zsimg/01.gif' source='http://www.baidu.com' target='' />
-<item order='11' category='B' type='image' title='10101010' image='zsimg/01.gif' source='http://www.baidu.com' target='' />
+<item order='1' category='E' type='image' title='Paradise Lost' image='zsimg/04.gif' source='http://baike.baidu.com/subview/15588/4965759.htm#viewPageContent' target='_blank' />
+<item order='2' category='E' type='image' title='THE WIND RISES' image='zsimg/01.gif' source='http://baike.baidu.com/subview/9767141/11319516.htm#viewPageContent' target='_blank'  />
+<item order='3' category='E' type='image' title='Notre-Dame de Paris' image='zsimg/02.gif' source='http://baike.baidu.com/subview/14159/5247313.htm#viewPageContent' target='_blank'  />
+<item order='4' category='E' type='image' title='Harry Potter' image='zsimg/03.gif' source='http://baike.baidu.com/subview/18045/4953140.htm#viewPageContent' target='_blank'  />
+<item order='5' category='E' type='image' title='INSURGENT' image='zsimg/00.gif' source='http://baike.baidu.com/subview/11927649/13626323.htm#viewPageContent' target='_blank' />
+<item order='6' category='S' type='image' title='Les Miserables' image='zsimg/05.gif' source='http://baike.baidu.com/subview/45654/6431473.htm#viewPageContent' target='_blank'  />
+<item order='7' category='S' type='video' title='One Hundred Years of Solitude' image='zsimg/06.gif' source='http://baike.baidu.com/view/37227.htm' target='_blank' />
+<item order='8' category='S' type='video' title='A Song of Ice and Fire' image='zsimg/07.gif' source='http://baike.baidu.com/subview/25537/8734654.htm' target='_blank'/>
+<item order='9' category='B' type='image' title='Jane Eyre' image='zsimg/08.gif' source='http://baike.baidu.com/subview/45679/5244450.htm#viewPageContent' target='_blank'  />
+<item order='10' category='B' type='image' title='Wuthering Heights' image='zsimg/09.gif' source='http://baike.baidu.com/subview/29398/5072231.htm#viewPageContent' target='_blank' />
+<item order='11' category='B' type='image' title='The Story of the Stone' image='zsimg/10.gif' source='http://baike.baidu.com/subview/2571/6230942.htm#viewPageContent' target='_blank'  />
 </contentsRotator>

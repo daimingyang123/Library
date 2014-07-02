@@ -26,13 +26,9 @@ public class GetBooksAction extends ModelAction<Books>{
 			int div =  (int) model.getCount() / model.getEveryPageCount();
 			model.setPageCount((model.getCount() % model.getEveryPageCount() == 0)?div:div+1);
 			model.setBooks(bookServiceInter.getBooks(model.getPageIndex(),
-					model.getEveryPageCount()));
-//			if(session.getAttribute("user")=="admin"){
-				return SUCCESS;
-//			}else{
-//				return INPUT;
-//			}
-			
+			model.getEveryPageCount()));
+			return SUCCESS;
+
 
 		}
 		catch (Exception e)

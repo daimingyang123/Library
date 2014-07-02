@@ -15,7 +15,7 @@ public class Book implements java.io.Serializable {
 	private Integer bookNo;
 	private String title;
 	private String plot;
-	private String state;
+	private Integer state;
 	private Set borrows = new HashSet(0);
 	private List<Book> books;
 
@@ -71,11 +71,11 @@ public class Book implements java.io.Serializable {
 		this.borrows = borrows;
 	}
 
-	public String getState() {
+	public Integer getState() {
 		return state;
 	}
 
-	public void setState(String state) {
+	public void setState(Integer state) {
 		this.state = state;
 	}
 	

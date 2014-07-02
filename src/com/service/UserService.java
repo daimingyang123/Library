@@ -81,7 +81,6 @@ public class UserService implements UserServiceInter {
 //	UserServiceInter userServiceInter = (UserServiceInter) ctx.getBean("UserService");
 //	User uer=new User();
 ////	uer.setUserNo(1);
-////	uer.setUserName("fuck");
 ////	boolean user = userServiceInter.verifyUser(uer);
 //	uer=userServiceInter.addUser("fack");
 //	

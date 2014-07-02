@@ -26,7 +26,6 @@ public class ReturnBookAction extends ModelAction<Borrow>{
 		{
 			e.printStackTrace();
 		}
-		result = "·¢²¼Ê§°Ü";
 		return INPUT;
 	}
 }

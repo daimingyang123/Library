@@ -56,6 +56,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<input type="email" name="email" placeholder="メールアドレス入力し" required/>
 				<span class="form_hint">アドレス</span>
 			</li>
+		<dt>
+			${addusererror}
+         </dt>
 			<li>
 				<button class="submit" type="submit">登録</button>
 				<button class="submit1" type="reset">リセット</button>

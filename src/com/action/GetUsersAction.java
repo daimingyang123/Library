@@ -7,8 +7,8 @@ import com.model.Users;
 import com.service.inter.UserServiceInter;
 
 @SuppressWarnings("serial")
-public class GetUserAction extends ModelAction<Users>{
-	public GetUserAction(){
+public class GetUsersAction extends ModelAction<Users>{
+	public GetUsersAction(){
 		model = new Users();
 	}
 	@Override
@@ -26,19 +26,12 @@ public class GetUserAction extends ModelAction<Users>{
 			int div =  (int) model.getCount() / model.getEveryPageCount();
 			model.setPageCount((model.getCount() % model.getEveryPageCount() == 0)?div:div+1);
 			model.setUsers(userServiceInter.getUsers(model.getPageIndex(), model.getEveryPageCount()));
-//			if(session.getAttribute("user")=="admin"){
-//				return SUCCESS;
-//			}else{
-//				return INPUT;
-//			}
-			
-
 		}
 		catch (Exception e)
 		{
 			e.printStackTrace();
 		}
-		return INPUT;
+		return SUCCESS;
 	}
 
 }

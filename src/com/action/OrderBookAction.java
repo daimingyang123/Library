@@ -24,9 +24,6 @@ public class OrderBookAction extends ModelAction<Books> {
 		if(booklist==null){
 		System.out.println("booklist is null");}
 		try {
-//			if(bookServiceInter.orderBook(model.getBooks(), session, context)){
-//				return SUCCESS;
-//			}
 			System.out.println("进入orderbookaction的try");
 			if(bookServiceInter.orderBook(booklist, session, context)){
 				System.out.println("进入orderbookaction的if");

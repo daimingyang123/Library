@@ -17,4 +17,5 @@ public interface BookServiceInter {
 	public Book findByNo(int No) throws Exception;
 	public List<Book> findBook(Book book,HttpSession session,ServletContext servletContext) throws Exception;
 	public boolean orderBook(List<Book> books,HttpSession session,ServletContext servletContext) throws Exception;
+	public boolean verifySameBook(Integer bookNo) throws Exception;
 }

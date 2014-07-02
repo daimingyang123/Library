@@ -8,7 +8,7 @@ public class BookMsg {
 	private Integer bookNo;
 	private String title;
 	private String plot;
-	private String state;
+	private Integer state;
 	private Integer borrowId;
 	private Integer userNo;
 	private Date borrowDate;
@@ -36,11 +36,11 @@ public class BookMsg {
 	public void setPlot(String plot){
 		this.plot=plot;
 	}
-	public String getState(){
+	public Integer getState(){
 		return state;
 	}
-	public void setState(String state){
-		this.state=state;
+	public void setState(Integer integer){
+		this.state=integer;
 	}
 	public Integer getBorrowId(){
 		return borrowId;

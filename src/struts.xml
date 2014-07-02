@@ -36,6 +36,10 @@
 			<result name="success">/adminbooklist.jsp</result> 
 			<result name="error">/error.jsp</result>
 		</action>
+		<action name="getUsers"  class="com.action.GetUsersAction">
+			<result name="success">/adminbooklist2.jsp</result> 
+			<result name="input">/error.jsp</result>
+		</action>
 		<action name="login"  class="com.action.LoginAction">
 			<result type="chain">user</result>
 			<result name="error">/user.jsp</result>
@@ -83,10 +87,7 @@
 			<result name="success">/myBorrow.jsp</result>
 			<result name="input">/myBorrow.jsp</result> 
 		</action>
-		<action name="getUsers"  class="com.action.GetUserAction">
-			<result name="success">/adminbooklist.jsp</result> 
-			<result name="input">/adminbooklist.jsp</result>
-		</action>
+		
 		
 		
 	</package>

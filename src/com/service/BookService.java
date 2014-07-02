@@ -34,7 +34,7 @@ public class BookService implements BookServiceInter{
 	@Override
 	public void addBook(Book book, HttpSession session, ServletContext context)
 			throws Exception {
-		book.setState("在架可借");
+		book.setState(1);
 		bookDAO.save(book);
 		
 	}
@@ -55,8 +55,8 @@ public class BookService implements BookServiceInter{
 		if(books==null){System.out.println("boos is null");}
 		if(books != null || books.size()!=0){
 			for(int i=0;i<books.size();i++){
-				if(books.get(i).getState().equals("在架可借")){
-					books.get(i).setState("已预约");
+				if(books.get(i).getState().equals(1)){
+					books.get(i).setState(0);
 					bookDAO.save(books.get(i));
 					System.out.println(books.get(i).getTitle());
 					return true;
@@ -64,6 +64,15 @@ public class BookService implements BookServiceInter{
 			}
 		}
 		return false;
+	}
+	@Override
+	public boolean verifySameBook(Integer bookNo) throws Exception {
+		// TODO Auto-generated method stub
+		if(bookDAO.findByNo(bookNo)==null){
+			//返回true代表已存在相同number
+			return false;
+		}
+		return true;
 	}
 
 }

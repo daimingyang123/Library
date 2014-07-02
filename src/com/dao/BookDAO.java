@@ -108,7 +108,14 @@ public class BookDAO extends BaseHibernateDAO implements BookDAOInter {
 					throws HibernateException, SQLException
 			{   
 				List<Book> book = (List<Book>)template.find("from Book where bookNo = ?",No);
-				return book.get(0);
+				//ÐÞ¸Ä´¦
+				if(!book.isEmpty())
+				{
+					return book.get(0);
+				}else
+				{
+					return null;
+				}
 			}
 		});
 	}
@@ -121,8 +128,6 @@ public class BookDAO extends BaseHibernateDAO implements BookDAOInter {
 //		Book mybook = new Book;
 //		Book mybook = bookDAO.findbyTitle("1");
 //		Book book = new Book();
-//		book.setTitle("fuck");
-//		book.setPlot("shit");
 //		book.setState("zaijia");
 //		bookDAO.save(book);
 //		List<Book> mybook = bookDAO.getBooks(0, 3);

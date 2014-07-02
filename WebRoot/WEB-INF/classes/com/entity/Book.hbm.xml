@@ -16,8 +16,8 @@
         <property name="plot" type="java.lang.String">
             <column name="plot" length="128" not-null="false"/>
         </property>
-         <property name="state" type="java.lang.String">
-            <column name="state" length="128" />
+         <property name="state" type="java.lang.Integer">
+            <column name="state" length="128" not-null="false"/>
         </property>
         <set name="borrows" inverse="true">
             <key>

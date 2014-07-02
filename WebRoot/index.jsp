@@ -36,11 +36,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <div class="mid_1"> <font class="font3">新刊</font></div>
     </div>
     <div class="div4">
-    <div class="div4_1"><img src="img/l1.JPG"><input type="button" value="詳細を取得" name="getinf"></img></div>
-    <div class="div4_2"><img src="img/l2.JPG"><input type="button" value="詳細を取得" name="getinf"></img></div>
-    <div class="div4_3"><img src="img/l3.JPG"><input type="button" value="詳細を取得" name="getinf"></img></div>
-    <div class="div4_4"><img src="img/l4.JPG"><input type="button" value="詳細を取得" name="getinf"></img></div>
-    <div class="div4_5"><img src="img/l5.JPG"><input type="button" value="詳細を取得" name="getinf"></img></div>
+    <script type="text/javascript" src="js/html.js"></script>
+<div class="main_flash">
+  <script type="text/javascript" language="javascript">printFlash('mainVisual.swf','1050','312','mainVisual','xml=mainVisual.xml&currItem=1');</script>
+</div>
     </div>
     <div class="div5">
 	<table width="100%" cellpadding="5" border="50px" bordercolor="#ECF0F5">

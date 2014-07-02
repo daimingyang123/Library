@@ -1,5 +1,8 @@
 package com.action;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -20,15 +23,21 @@ public class AddBookAction extends ModelAction<Book>{
 			ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 			BookServiceInter bookServiceInter = (BookServiceInter) ctx.getBean("bookService");
 //			System.out.println(model.getTitle());
-			bookServiceInter.addBook(model, session, context);
-
-			return SUCCESS;
+			//如果已存在此number则不添加
+			if(!bookServiceInter.verifySameBook(model.getBookNo()))
+			{
+				bookServiceInter.addBook(model, session, context);
+				System.out.println("addbookaction--数据库中不存在此bookNo，添加成功！");
+				return SUCCESS;
+			}
 		}
 		catch (Exception e)
 		{
 			e.printStackTrace();
 		}
-		result = "����ʧ��";
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		session.setAttribute("addbookerror", "操作ミス");
+//		System.out.println("addbookaction--数据库中存在此bookNo，添加不成功！");
 		return INPUT;
 	}
 }

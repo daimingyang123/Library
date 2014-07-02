@@ -58,6 +58,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<label for="name">書籍名:</label>
 				<input type="text" name="title" class="bookname" placeholder="書籍名入力し" required/>
 			</li>
+		<dt>
+			${borrowbookerror}
+         </dt>			
 			<li style="margin:0 15%">
 				<button class="submit" type="submit" >貸出し</button>
 				<button class="submit1" type="reset">リセット</button>
@@ -83,6 +86,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<input type="text" name="title" placeholder="書籍名入力し" required/>
 				<span class="form_hint">名前</span>
 			</li>
+		 <dt style="color:red">
+			${borrowbookerror}
+         </dt>
 			<li style="margin:0 15%">
 				<button class="submit" type="submit">貸出し</button>
 				<button class="submit1" type="reset">リセット</button>

@@ -1,6 +1,7 @@
 package com.action;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
 import org.springframework.context.ApplicationContext;
@@ -40,7 +41,12 @@ public class AddUserAction extends  ActionSupport {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 		UserServiceInter userServiceInter = (UserServiceInter) ctx.getBean("UserService");
 		try {
-			newUser=userServiceInter.addUser(userNo,userName,email);
+			
+			if(userServiceInter.findByNo(userNo) == null){
+				newUser=userServiceInter.addUser(userNo,userName,email);
+				System.out.println("adduseraction--数据库中不存在此userno 添加成功");
+			}
+			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -53,6 +59,9 @@ public class AddUserAction extends  ActionSupport {
 			return SUCCESS;
 		}
 		else{
+			HttpSession session = ServletActionContext.getRequest().getSession();
+			session.setAttribute("addusererror", "操作ミス");
+//			System.out.println("adduseraction--数据库中存在此userno 添加不成功");
 			return INPUT;
 		}
 		

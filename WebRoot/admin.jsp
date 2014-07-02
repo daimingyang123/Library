@@ -47,9 +47,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<input type="text" name="password" placeholder="司書名入力し" required pattern="^[\u4E00-\u9FFF]+$"/>
 				<span class="form_hint">漢字</span>
 		   </li>
-			<dt>
+		  <dt>
 			${error}
-           </dt>
+         </dt>
            <li>
 				<button class="submit" type="submit">ログイン</button>
 				<button class="submit1" type="reset">リセット</button>

@@ -6,7 +6,7 @@ import com.entity.User;
 
 public class Users {
 //	 private String username;
-	 private int everyPageCount = 1;
+	 private int everyPageCount = 15;
 	 private long count;
 	 private int pageCount;
 	 private List<User> users;

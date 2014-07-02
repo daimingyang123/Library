@@ -2,6 +2,9 @@ package com.action;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -29,6 +32,9 @@ public class FindBookAction extends ModelAction<Book> {
 		{
 			e.printStackTrace();
 		}
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		session.setAttribute("userbookerror", "操作ミス");
+//		System.out.println("adduseraction--数据库中存在此userno 添加不成功");
 		return INPUT;
 		
 	}

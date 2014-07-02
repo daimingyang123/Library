@@ -1,5 +1,8 @@
 package com.action;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -27,6 +30,8 @@ public class BorrowBookAction extends ModelAction<Borrow>{
 		{
 			e.printStackTrace();
 		}
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		session.setAttribute("borrowbookerror", "五冊を超えて");
 		return INPUT;
 	}
 }

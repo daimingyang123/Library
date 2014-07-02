@@ -27,25 +27,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<table width="100%" border="0">
     <tr>
       <th width="25%" scope="col"><a href="index.jsp" class="pic"><img src="img/5.png" width="150" height="47" /></a></th>
-      <th width="12%"  scope="col"><a href="userbooklist.jsp" class="text"><span>蔵書一覧</span></a></th>
+      <th width="12%"  scope="col"><a href="user.action" class="text"><span>蔵書一覧</span></a></th>
       <th width="15%"  scope="col"><a href="myHome.jsp" class="text"><span>ホームページ</span></a></th>
-      <th width="70%"  scope="col">&nbsp;</th>
-      <th width="11%"  scope="col">${userName}</th>
+      <th width="40%"  scope="col">&nbsp;</th>
+      <th width="31%"  scope="col"><span>${userName}</span></th>
       <th><a href="logout.action"><button class="submit2" type="submit">終了</button></a></th>
     </tr>
     </table>
 	</div>
+	<div class="all">
 	<div class="left">
 	<div class="left_1">
 	<div class="left_11"><font class="font1l">個人情報</font></div>
 	<img src="img/touxiang.jpg"></img>
-	${userName}
+	<div class="left_12"><font class="font2l">利用者名：${userName}</font></div>
+	<div class="left_12"><font class="font2l">利用者No：${userNo}</font></div>
 	</div>
 	
 	<div class="left_2">
 	<table width="100%">
 	<tr><td><a href="myHome.jsp" ><img src="img/an1.png"></img><font class="font2l">読者情報セット</font></a></td></tr>
-	<tr><td><a href="getborrows.action" style="color:blue;"><img src="img/an2.jpg"></img><font class="font2l">返却情報</font></a></td></tr>
+	<tr><td><a href="getborrows.action"><img src="img/an2.jpg"></img><font class="font2l">書籍貸出情報</font></a></td></tr>
 	<tr><td><a href="myOrder.jsp" ><img src="img/an3 .jpg"></img><font class="font2l">予約情報</font></a></td></tr>
 	</table>
 	</div>
@@ -53,9 +55,18 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="right">
 	
 	<!-- 可根据需要进行打印信息---美化界面 -->
+	<table width="80%"  align="center"  >
+<tr>
+
+			<th scope="col" width="20%" align="left" >書籍No</th>
+			<th scope="col" width="10%" align="left" >状態</th>
+			<th scope="col" width="30%" align="left" >書籍名</th>
+		    <th scope="col" width="30%" align="left" >プロット</th>    
+</tr>
+</table>
 	
 	<s:iterator id="booklist" value="bookMsgList" status="status">
-    <table>
+    <table width="80%"  align="center"  >
     <tr class="<s:if test="#status.even">row-even</s:if><s:else>row-odd</s:else>">
 
 			<th scope="col" width="20%" align="left" >${booklist.bookNo}</th>
@@ -68,7 +79,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
    </s:iterator> 
 	
 	</div>
-
+	</div>
 
 </body>
 </html>

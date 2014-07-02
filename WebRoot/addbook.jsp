@@ -55,6 +55,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<label for="name">プロット:</label>
 				<input type="text" name="plot" placeholder="プロット入力し" required/>
 			</li>
+		 <dt>
+			${addbookerror}
+         </dt>
 			<li>
 				<button class="submit" type="submit">登録</button>
 				<button class="submit1" type="reset">リセット</button>

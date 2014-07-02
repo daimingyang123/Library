@@ -35,8 +35,8 @@ public class BorrowService implements BorrowServiceInter{
 		List<Book> books = (List<Book>) bookDAO.findByTitle(title);
 		for(int i=0;i<books.size();i++){
 			Book mybook = books.get(i);
-			if(mybook.getState().equals("在架可借")){
-				mybook.setState("已借出");
+			if(mybook.getState().equals(1)){
+				mybook.setState(null);
 				borrow.setBookNo(mybook.getBookNo());
 				bookDAO.save(mybook);
 				break;
@@ -65,7 +65,7 @@ public class BorrowService implements BorrowServiceInter{
 		for(int i=0;i<books.size();i++){
 			for(int j=0;j<borrows.size();j++){
 				if(books.get(i).getBookNo().equals(borrows.get(j).getBookNo())){
-					books.get(i).setState("在架可借");
+					books.get(i).setState(1);
 					bookDAO.save(books.get(i));
 					borrowDAO.delete(borrows.get(j));
 				}
@@ -80,8 +80,8 @@ public class BorrowService implements BorrowServiceInter{
 		List<Book> books = (List<Book>) bookDAO.findByTitle(title);
 		for(int i=0;i<books.size();i++){
 			Book mybook = books.get(i);
-			if(mybook.getState().equals("已预约")){
-				mybook.setState("已借出");
+			if(mybook.getState().equals(0)){
+				mybook.setState(null);
 				borrow.setBookNo(mybook.getBookNo());
 				bookDAO.save(mybook);
 				break;

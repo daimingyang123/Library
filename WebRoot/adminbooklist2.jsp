@@ -36,18 +36,53 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <div class="wrapper" >
   <div id="heading"><a href="admin.action"><img src="images/leftAlt3.png" alt="" id="previous" /></a>
     <ul id="buttons">
-      <li><a href="admin.action">蔵書一覧</a></li>
-    <li><a href="getUsers.action">利用者一覧</a></li>
+      <li><a href="getUsers.action">利用者一覧</a></li>
+    <li><a href="admin.action">蔵書一覧</a></li>
     </ul>
    <a href="getUsers.action"><img src="images/rightAlt3.png" alt="" id="next" /></a>
      </div>
   <div id="panes">
     <div id="content">
-      <div class="pane" id="about">
+        <div class="pane" id="about">
+       <div class="search">
+<table width="80%" align="center"  >
+<tr>
+            <th scope="col" width="10%" align="left" >&nbsp;</th>
+			<th scope="col" width="10%" align="left" >利用者No</th>
+			<th scope="col" width="20%" align="left" >利用者名</th>
+			<th scope="col" width="30%" align="left" >Eメール</th>
+	    
+</tr>
+</table>
+<s:iterator id="user" value="users" status="status">
+<table width="80%" align="center" >
+<tr class="<s:if test="#status.even">row-even</s:if><s:else>row-odd</s:else>">
+            <th scope="col" width="10%" align="left" >&nbsp;</th>
+			<th scope="col" width="10%" align="left" >${user.userNo}</th>
+			<th scope="col" width="20%" align="left" >${user.userName}</th>
+			<th scope="col" width="30%" align="left" >${user.email}</th>   
+</tr>
+</table>			
+</s:iterator> 
+<form  name="AddStudentForm"  action="admin.action" method="post">
+  第${pageIndex}页&nbsp;
+  共${pageCount}页&nbsp;
+  <a href="admin.action?pageIndex=1">首页</a>
+  <logic:greaterThan name="pageIndex" scope="request" value="1">
+      <a href="main.action?pageIndex=${pageIndex - 1}">上一页</a>
+  </logic:greaterThan>
+  
+  <logic:lessThan name="pageIndex" scope="request" value="${requestScope.pageCount}">
+       <a href="main.action?pageIndex=${requestScope.pageIndex + 1}">下一页</a>
+  </logic:lessThan>
+  
+  <a href="admin.action?pageIndex=${requestScope.pageCount}">尾页</a>&nbsp;跳到<input size="4" type="text" name="pageIndex" id="pageIndex"/>页 <input type="submit" value="遷移" />
+</form>
+  </div>
+      </div>
+    </div>
+          <div class="pane" id="about">
       <div class="search">
-
-<p/>
-
 <table width="80%"  align="center"  >
 <tr>
 
@@ -99,44 +134,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </form>
   </div>
       </div>
-        <div class="pane" id="about">
-       <div class="search">
-<table width="80%" align="center"  >
-<tr>
-            <th scope="col" width="10%" align="left" >&nbsp;</th>
-			<th scope="col" width="10%" align="left" >利用者No</th>
-			<th scope="col" width="20%" align="left" >利用者名</th>
-			<th scope="col" width="30%" align="left" >Eメール</th>
-	    
-</tr>
-</table>
-<s:iterator id="user" value="users" status="status">
-<table width="80%" align="center" >
-<tr class="<s:if test="#status.even">row-even</s:if><s:else>row-odd</s:else>">
-            <th scope="col" width="10%" align="left" >&nbsp;</th>
-			<th scope="col" width="10%" align="left" >${user.userNo}</th>
-			<th scope="col" width="20%" align="left" >${user.userName}</th>
-			<th scope="col" width="30%" align="left" >${user.email}</th>   
-</tr>
-</table>			
-</s:iterator> 
-<form  name="AddStudentForm"  action="admin.action" method="post">
-  第${pageIndex}页&nbsp;
-  共${pageCount}页&nbsp;
-  <a href="admin.action?pageIndex=1">首页</a>
-  <logic:greaterThan name="pageIndex" scope="request" value="1">
-      <a href="main.action?pageIndex=${pageIndex - 1}">上一页</a>
-  </logic:greaterThan>
-  
-  <logic:lessThan name="pageIndex" scope="request" value="${requestScope.pageCount}">
-       <a href="main.action?pageIndex=${requestScope.pageIndex + 1}">下一页</a>
-  </logic:lessThan>
-  
-  <a href="admin.action?pageIndex=${requestScope.pageCount}">尾页</a>&nbsp;跳到<input size="4" type="text" name="pageIndex" id="pageIndex"/>页 <input type="submit" value="遷移" />
-</form>
-  </div>
-      </div>
-    </div>
   </div>
 </div>
 <script type="text/javascript" charset="utf-8">
