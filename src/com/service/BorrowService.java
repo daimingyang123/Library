@@ -136,6 +136,21 @@ public class BorrowService implements BorrowServiceInter{
 		System.out.println("BorrowService--borrowBookMsgList--Time2--bookNo: "+borrowBookMsgList.get(i).getBookNo()+"    "+i);}
 		return borrowBookMsgList;
 	}
+
+
+	@Override
+	public boolean verifyBorrowNo(String userName) throws Exception {
+		// TODO Auto-generated method stub
+		Integer userNo=userDAO.findByName(userName).getUserNo();
+		System.out.println("borrowservice--"+userNo);
+		if(borrowDAO.findByUserNo(userNo).size()<5)
+		{
+			System.out.println("borrowservice--size--"+borrowDAO.findByUserNo(userNo).size());
+			return true;
+		}
+		return false;
+	}
+
 	
 	
 

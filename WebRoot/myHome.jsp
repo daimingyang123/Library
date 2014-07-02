@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <th width="12%"  scope="col"><a href="user.action" class="text"><span>蔵書一覧</span></a></th>
       <th width="15%"  scope="col"><a href="myHome.jsp" class="text"><span>ホームページ</span></a></th>
       <th width="40%"  scope="col">&nbsp;</th>
-      <th width="31%"  scope="col"><span>${userName}</span></th>
+      <th width="31%"  scope="col"><span>${username}</span></th>
       <th><a href="logout.action"><button class="submit2" type="submit">終了</button></a></th>
     </tr>
     </table>

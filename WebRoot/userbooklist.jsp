@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -31,7 +31,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <th width="12%"  scope="col"><a href="user.action" class="text"><span>蔵書一覧</span></a></th>
       <th width="15%"  scope="col"><a href="myHome.jsp" class="text"><span>ホームページ</span></a></th>
       <th width="40%"  scope="col">&nbsp;</th>
-      <th width="31%"  scope="col"><span>${userName}</span></th>
+      <th width="31%"  scope="col"><span>${username}</span></th>
       <th><a href="logout.action"><button class="submit2" type="submit">終了</button></a></th>
    </tr>
   </table>
@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		        <button class="submit" type="submit" onclick="contact_form.action='findBook';contact_form.submit();">検索</button>
 		        <button class="submit" type="submit" onclick="contact_form.action='orderBook';contact_form.submit();">予約</button>
 		        <dt>
-		        {orderbook}
+		        ${orderbook}
 		        </dt>
 		        <!--  <a href="orderBook.action"><button>order</button></a> -->
 		    </li>

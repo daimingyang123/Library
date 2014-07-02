@@ -16,4 +16,6 @@ public interface BorrowServiceInter {
 	public void returnBook(Borrow borrow,HttpSession session,ServletContext context) throws Exception;
 	public List<Borrow> getBorrows() throws Exception;
 	public List<BookMsg> getBorrows(Integer userNo) throws Exception;
+	public boolean verifyBorrowNo(String userName) throws Exception;
+	
 }

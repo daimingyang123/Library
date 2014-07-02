@@ -28,7 +28,7 @@ public class LoginInterceptor  extends MethodFilterInterceptor {
 //		HttpServletRequest request = ServletActionContext.getRequest();
 //		HttpSession session = request.getSession();
 //		String name = (String)session.getAttribute("userName");
-		String user=(String)ServletActionContext.getRequest().getSession().getAttribute("userName");
+		String user=(String)ServletActionContext.getRequest().getSession().getAttribute("username");
 		System.out.println("invacation"+user);
 //		HttpSession session = ServletActionContext.getRequest().getSession();
 //		session.invalidate();

@@ -32,8 +32,8 @@ public class LoginAction extends  ModelAction<User> {
 			if(userServiceInter.verifyUser(model))
 				{
 				    HttpSession session = request.getSession();
-				    session.setAttribute("userNo", model.getUserNo());
-				    session.setAttribute("userName", model.getUserName());
+//				    session.setAttribute("userNo", model.getUserNo());
+				    session.setAttribute("username", model.getUserName());
 				    //TEXT
 				    System.out.println("enter--if()--"+session.getAttribute("userNo")+"---"+session.getAttribute("userName"));
 					return SUCCESS;

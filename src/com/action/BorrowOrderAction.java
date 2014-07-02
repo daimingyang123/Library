@@ -25,6 +25,7 @@ public class BorrowOrderAction extends ModelAction<Borrow>{
 			BorrowServiceInter borrowServiceInter = (BorrowServiceInter) ctx.getBean("borrowService");
 			borrowServiceInter.borrowOrder(model, session, context);
 			HttpSession session = ServletActionContext.getRequest().getSession();
+			session.setAttribute("borrow", "");
 			session.setAttribute("borroworder", "²Ù×÷¤ò³É¹¦");
 			return SUCCESS;
 		}

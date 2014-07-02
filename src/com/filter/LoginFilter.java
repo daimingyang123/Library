@@ -45,7 +45,7 @@ public class LoginFilter extends HttpServlet implements Filter   {
 			  return;
 		  }
 		  // 从session里取的用户名信息  
-		  String username = (String) session.getAttribute("userName");
+		  String username = (String) session.getAttribute("username");
 		// 判断如果没有取到用户信息,就跳转到登陆页面  
 		  if (username == null || "".equals(username))  
 		  {  

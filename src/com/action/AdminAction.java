@@ -44,7 +44,7 @@ public class AdminAction extends ActionSupport {
         properties.load(in);
         if((admin.equals(getdefaultAdminname()) && password.equals(getdefaultAdminpassword())) ){
             HttpSession session = ServletActionContext.getRequest().getSession();
-			session.setAttribute("userName", "代明洋");
+			session.setAttribute("username", "代明洋");
             return SUCCESS;
 		}
 		else{

@@ -28,7 +28,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <th width="15%"  scope="col"><a href="adduser.jsp" class="text"><span>利用者登録</span></a></th>
       <th width="12%"  scope="col"><a href="addbook.jsp" class="text"><span>書籍登録</span></a></th>
       <th width="5%"  scope="col">&nbsp;</th>
-      <th width="11%"  scope="col"><span>${userName}<span></th>
+      <th width="11%"  scope="col"><span>${username}<span></th>
       <th><a href="logout.action"><button class="submit2" type="submit">終了</button></a></th>
    </tr>
   </table>
