@@ -57,7 +57,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<span class="form_hint">アドレス</span>
 			</li>
 		<dt>
-			${addusererror}
+			${adduser}
          </dt>
 			<li>
 				<button class="submit" type="submit">登録</button>

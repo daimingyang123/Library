@@ -1,5 +1,8 @@
 package com.action;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -20,12 +23,16 @@ public class ReturnBookAction extends ModelAction<Borrow>{
 			ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 			BorrowServiceInter borrowServiceInter = (BorrowServiceInter) ctx.getBean("borrowService");
 			borrowServiceInter.returnBook(model, session, context);
+			HttpSession session = ServletActionContext.getRequest().getSession();
+			session.setAttribute("returnbook", "操作を成功");
 			return SUCCESS;
 		}
 		catch (Exception e)
 		{
 			e.printStackTrace();
 		}
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		session.setAttribute("returnbook", "操作ミス");
 		return INPUT;
 	}
 }

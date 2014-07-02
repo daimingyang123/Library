@@ -55,12 +55,13 @@ public class AddUserAction extends  ActionSupport {
 			
 //			HttpServletRequest request = ServletActionContext.getRequest();
 //			request.setAttribute(userName, newUser.getUserName());
-			
+			HttpSession session = ServletActionContext.getRequest().getSession();
+			session.setAttribute("adduser", "操作を成功");
 			return SUCCESS;
 		}
 		else{
 			HttpSession session = ServletActionContext.getRequest().getSession();
-			session.setAttribute("addusererror", "操作ミス");
+			session.setAttribute("adduser", "操作ミス");
 //			System.out.println("adduseraction--数据库中存在此userno 添加不成功");
 			return INPUT;
 		}

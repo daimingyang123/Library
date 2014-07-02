@@ -53,7 +53,7 @@
 			<result name="error">/error.jsp</result>
 		</action>
 		<action name="addBook"  class="com.action.AddBookAction">
-			<result type="chain">admin</result> 
+			<result name="success">/addbook.jsp</result>
 			<result name="input">/addbook.jsp</result>
 		</action>
 		<action name="borrow"  class="com.action.BorrowBookAction">
@@ -65,11 +65,11 @@
 			<result name="input">/returnbook.jsp</result>
 		</action>
 		<action name="addUser"  class="com.action.AddUserAction">
-			<result name="success">/adminbooklist.jsp</result> 
+			<result name="success">/adduser.jsp</result> 
 			<result name="input">/adduser.jsp</result>
 		</action>
 		<action name="borrowOrder"  class="com.action.BorrowOrderAction">
-			<result type="chain">admin</result>
+			<result name="success">/borrowbook.jsp</result> 
 			<result name="input">/borrowbook.jsp</result>
 		</action>
 		<action name="findBook"  class="com.action.FindBookAction">

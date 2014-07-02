@@ -24,6 +24,8 @@ public class BorrowOrderAction extends ModelAction<Borrow>{
 			ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 			BorrowServiceInter borrowServiceInter = (BorrowServiceInter) ctx.getBean("borrowService");
 			borrowServiceInter.borrowOrder(model, session, context);
+			HttpSession session = ServletActionContext.getRequest().getSession();
+			session.setAttribute("borroworder", "操作を成功");
 			return SUCCESS;
 		}
 		catch (Exception e)
@@ -31,7 +33,7 @@ public class BorrowOrderAction extends ModelAction<Borrow>{
 			e.printStackTrace();
 		}
 		HttpSession session = ServletActionContext.getRequest().getSession();
-		session.setAttribute("userbookerror", "操作ミス");
+		session.setAttribute("borroworder", "操作ミス");
 //		System.out.println("adduseraction--数据库中存在此userno 添加不成功");
 		return INPUT;
 	}

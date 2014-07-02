@@ -24,6 +24,8 @@ public class BorrowBookAction extends ModelAction<Borrow>{
 			ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 			BorrowServiceInter borrowServiceInter = (BorrowServiceInter) ctx.getBean("borrowService");
 			borrowServiceInter.borrowBook(model, session, context);
+			HttpSession session = ServletActionContext.getRequest().getSession();
+			session.setAttribute("borrowbook", "操作を成功");
 			return SUCCESS;
 		}
 		catch (Exception e)
@@ -31,7 +33,7 @@ public class BorrowBookAction extends ModelAction<Borrow>{
 			e.printStackTrace();
 		}
 		HttpSession session = ServletActionContext.getRequest().getSession();
-		session.setAttribute("borrowbookerror", "五冊を超えて");
+		session.setAttribute("borrowbook", "五冊を超えて");
 		return INPUT;
 	}
 }

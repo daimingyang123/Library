@@ -2,6 +2,9 @@ package com.action;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -27,6 +30,8 @@ public class OrderBookAction extends ModelAction<Books> {
 			System.out.println("进入orderbookaction的try");
 			if(bookServiceInter.orderBook(booklist, session, context)){
 				System.out.println("进入orderbookaction的if");
+				HttpSession session = ServletActionContext.getRequest().getSession();
+				session.setAttribute("orderbook", "操作を成功");
 				return SUCCESS;
 			}
 			
@@ -34,6 +39,8 @@ public class OrderBookAction extends ModelAction<Books> {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		HttpSession session = ServletActionContext.getRequest().getSession();
+		session.setAttribute("orderbook", "操作ミス");
 		return INPUT;
 		}
 

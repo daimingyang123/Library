@@ -46,7 +46,7 @@ public class GetBorrowsAction extends ModelAction<BookMsg>{
 			e.printStackTrace();
 		}
 		HttpSession session = ServletActionContext.getRequest().getSession();
-		session.setAttribute("getborrowserror", "本を借りていない");
+		session.setAttribute("getborrows", "本を借りていない");
 		return INPUT;
 		
 	}

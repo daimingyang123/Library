@@ -1,6 +1,5 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 
 <%
@@ -31,7 +30,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       <th width="25%" scope="col"><a href="index.jsp" class="pic"><img src="img/5.png" width="150" height="47" /></a></th>
       <th width="12%"  scope="col"><a href="user.action" class="text"><span>蔵書一覧</span></a></th>
       <th width="15%"  scope="col"><a href="myHome.jsp" class="text"><span>ホームページ</span></a></th>
-      <th width="70%"  scope="col">&nbsp;</th>
+      <th width="40%"  scope="col">&nbsp;</th>
+      <th width="31%"  scope="col"><span>${userName}</span></th>
       <th><a href="logout.action"><button class="submit2" type="submit">終了</button></a></th>
    </tr>
   </table>
@@ -43,8 +43,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			<li>
 				<label for="name"><img src="img/search2.jpg" style="height: 40px; width: 50px;  margin-top:20px; "></img></label>
 				<input type="text" name="title" placeholder="書籍名入力し" style="height: 40px; width:350 px;  "/>
-		        <button class="submit" type="submit" onclick="contact_form.action='findBook';contact_form.submit();">find</button>
-		        <button class="submit" type="submit" onclick="contact_form.action='orderBook';contact_form.submit();">order</button>
+		        <button class="submit" type="submit" onclick="contact_form.action='findBook';contact_form.submit();">検索</button>
+		        <button class="submit" type="submit" onclick="contact_form.action='orderBook';contact_form.submit();">予約</button>
+		        <dt>
+		        {orderbook}
+		        </dt>
 		        <!--  <a href="orderBook.action"><button>order</button></a> -->
 		    </li>
 		</ul>
@@ -53,10 +56,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <table width="80%"  align="center" >
 <tr>
 
-			<th scope="col" width="20%" align="left" >bookNo</th>
-			<th scope="col" width="10%" align="left" >state</th>
-			<th scope="col" width="30%" align="left" >title</th>
-		    <th scope="col" width="30%" align="left" >plot</th>
+			<th scope="col" width="20%" align="left" >書籍No</th>
+			<th scope="col" width="10%" align="left" >状態</th>
+			<th scope="col" width="30%" align="left" >書籍名</th>
+		    <th scope="col" width="30%" align="left" >プロット</th> 
 		   
 	    
 </tr>
@@ -78,7 +81,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		    已预约
 		    </c:otherwise>
 			</c:choose>
+
 			</th>
+
 			<th scope="col" width="30%" align="left" >${book.title}</th>
 		    <th scope="col" width="30%" align="left" >${book.plot}</th>
 		 
@@ -88,18 +93,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </s:iterator> 
 <div class="fanye">
 <form  name="AddStudentForm"  action="user.action" method="post" align="center" >
-  第${pageIndex}页&nbsp;
-  共${pageCount}页&nbsp;
-  <a href="user.action?pageIndex=1">首页</a>
+   ${pageIndex}ページ目&nbsp;&nbsp;
+  総${pageCount}ページ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <logic:greaterThan name="pageIndex" scope="request" value="1">
-      <a href="user.action?pageIndex=${pageIndex - 1}">上一页</a>
+      <a href="user.action?pageIndex=${pageIndex - 1}">前のページ</a>
   </logic:greaterThan>
   
   <logic:lessThan name="pageIndex" scope="request" value="${requestScope.pageCount}">
-       <a href="user.action?pageIndex=${requestScope.pageIndex + 1}">下一页</a>
+       <a href="user.action?pageIndex=${requestScope.pageIndex + 1}">次のページ</a>
   </logic:lessThan>
-  
-  <a href="user.action?pageIndex=${requestScope.pageCount}">尾页</a>&nbsp;跳到<input size="4" type="text" name="pageIndex" id="pageIndex"/>页 <input type="submit" value="go" />
+  &nbsp;&nbsp;ジャンプ<input size="4" type="text" name="pageIndex" id="pageIndex"/><input type="submit" value="go" />
 </form>
 </div>
 </div>

@@ -28,6 +28,8 @@ public class AddBookAction extends ModelAction<Book>{
 			{
 				bookServiceInter.addBook(model, session, context);
 				System.out.println("addbookaction--数据库中不存在此bookNo，添加成功！");
+				HttpSession session = ServletActionContext.getRequest().getSession();
+				session.setAttribute("addbook", "操作を成功");
 				return SUCCESS;
 			}
 		}
@@ -36,7 +38,7 @@ public class AddBookAction extends ModelAction<Book>{
 			e.printStackTrace();
 		}
 		HttpSession session = ServletActionContext.getRequest().getSession();
-		session.setAttribute("addbookerror", "操作ミス");
+		session.setAttribute("addbook", "操作ミス");
 //		System.out.println("addbookaction--数据库中存在此bookNo，添加不成功！");
 		return INPUT;
 	}
