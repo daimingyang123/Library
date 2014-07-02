@@ -22,10 +22,18 @@ public class ReturnBookAction extends ModelAction<Borrow>{
 //			BookServiceInter bookServiceInter = serviceManager.getBookServiceInter();
 			ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 			BorrowServiceInter borrowServiceInter = (BorrowServiceInter) ctx.getBean("borrowService");
-			borrowServiceInter.returnBook(model, session, context);
-			HttpSession session = ServletActionContext.getRequest().getSession();
-			session.setAttribute("returnbook", "操作を成功");
-			return SUCCESS;
+			boolean returnBook = borrowServiceInter.returnBook(model, session, context);
+			if(returnBook){
+				HttpSession session = ServletActionContext.getRequest().getSession();
+				session.setAttribute("returnbook", "操作を成功");
+				return SUCCESS;
+			}
+			else{
+				HttpSession session = ServletActionContext.getRequest().getSession();
+				session.setAttribute("returnbook", "操作ミス");
+				return INPUT;
+			}	
+			
 		}
 		catch (Exception e)
 		{

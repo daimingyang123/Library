@@ -34,6 +34,7 @@ public class LoginAction extends  ModelAction<User> {
 				    HttpSession session = request.getSession();
 //				    session.setAttribute("userNo", model.getUserNo());
 				    session.setAttribute("username", model.getUserName());
+				    session.setAttribute("userNo", model.getUserNo());
 				    //TEXT
 				    System.out.println("enter--if()--"+session.getAttribute("userNo")+"---"+session.getAttribute("userName"));
 					return SUCCESS;
@@ -45,7 +46,7 @@ public class LoginAction extends  ModelAction<User> {
 			e.printStackTrace();
 		}
 		HttpSession session = ServletActionContext.getRequest().getSession();
-		session.setAttribute("usererror", "ユーザー名やパスワードエラー");
+		session.setAttribute("usererror", "利用者Noや利用者名エラー");
 		return ERROR;
 	}
 

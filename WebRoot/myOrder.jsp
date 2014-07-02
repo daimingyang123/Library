@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="left_1">
 	<div class="left_11"><font class="font1l">個人情報</font></div>
 	<img src="img/touxiang.jpg"></img>
-	<div class="left_12"><font class="font2l">利用者名：${userName}</font></div>
+	<div class="left_12"><font class="font2l">利用者名：${username}</font></div>
 	<div class="left_12"><font class="font2l">利用者No：${userNo}</font></div>
 	</div>
 	

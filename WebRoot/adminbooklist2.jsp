@@ -34,7 +34,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </table>
 </div>
 <div class="wrapper" >
-  <div id="heading"><a href="admin.action"><img src="images/leftAlt3.png" alt="" id="previous" /></a>
+  <div id="heading"><a href="getUsers.action"><img src="images/leftAlt3.png" alt="" id="previous" /></a>
     <ul id="buttons">
       <li><a href="getUsers.action">利用者一覧</a></li>
     <li><a href="admin.action">蔵書一覧</a></li>
@@ -64,10 +64,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </tr>
 </table>			
 </s:iterator> 
-<form  name="AddStudentForm"  action="admin.action" method="post">
+<form  name="AddStudentForm"  action="getUsers.action" method="post">
   第${pageIndex}页&nbsp;
   共${pageCount}页&nbsp;
-  <a href="admin.action?pageIndex=1">首页</a>
+  <a href="getUsers.action?pageIndex=1">首页</a>
   <logic:greaterThan name="pageIndex" scope="request" value="1">
       <a href="main.action?pageIndex=${pageIndex - 1}">上一页</a>
   </logic:greaterThan>
@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        <a href="main.action?pageIndex=${requestScope.pageIndex + 1}">下一页</a>
   </logic:lessThan>
   
-  <a href="admin.action?pageIndex=${requestScope.pageCount}">尾页</a>&nbsp;跳到<input size="4" type="text" name="pageIndex" id="pageIndex"/>页 <input type="submit" value="遷移" />
+  <a href="getUsers.action?pageIndex=${requestScope.pageCount}">尾页</a>&nbsp;跳到<input size="4" type="text" name="pageIndex" id="pageIndex"/>页 <input type="submit" value="遷移" />
 </form>
   </div>
       </div>
@@ -118,19 +118,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </tr>
 </table>			
 </s:iterator>
-<form  name="AddStudentForm"  action="admin.action" method="post">
+<form  name="AddStudentForm"  action="getUsers.action" method="post">
   第${pageIndex}页&nbsp;
   共${pageCount}页&nbsp;
-  <a href="admin.action?pageIndex=1">首页</a>
+  <a href="getUsers.action?pageIndex=1">首页</a>
   <logic:greaterThan name="pageIndex" scope="request" value="1">
-      <a href="admin.action?pageIndex=${pageIndex - 1}">上一页</a>
+      <a href="getUsers.action?pageIndex=${pageIndex - 1}">上一页</a>
   </logic:greaterThan>
   
   <logic:lessThan name="pageIndex" scope="request" value="${requestScope.pageCount}">
-       <a href="admin.action?pageIndex=${requestScope.pageIndex + 1}">下一页</a>
+       <a href="getUsers.action?pageIndex=${requestScope.pageIndex + 1}">下一页</a>
   </logic:lessThan>
   
-  <a href="admin.action?pageIndex=${requestScope.pageCount}">尾页</a>&nbsp;跳到<input size="4" type="text" name="pageIndex" id="pageIndex"/>页 <input type="submit" value="go" />
+  <a href="getUsers.action?pageIndex=${requestScope.pageCount}">尾页</a>&nbsp;跳到<input size="4" type="text" name="pageIndex" id="pageIndex"/>页 <input type="submit" value="go" />
 </form>
   </div>
       </div>

@@ -38,7 +38,7 @@ public class AddBookAction extends ModelAction<Book>{
 			e.printStackTrace();
 		}
 		HttpSession session = ServletActionContext.getRequest().getSession();
-		session.setAttribute("addbook", "操作ミス");
+		session.setAttribute("addbook", "書籍Noは重複");
 //		System.out.println("addbookaction--数据库中存在此bookNo，添加不成功！");
 		return INPUT;
 	}

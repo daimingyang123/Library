@@ -39,6 +39,9 @@ public class LoginFilter extends HttpServlet implements Filter   {
 		  excludedPages.add("/Library/index.jsp");
 		  excludedPages.add("/Library/user.jsp");
 		  excludedPages.add("/Library/admin.jsp");
+		  excludedPages.add("/Library/callus.jsp");
+		  excludedPages.add("/Library/DatabaseSecurity.jsp");
+		  excludedPages.add("/Library/UserSaying.jsp");
 		  if (excludedPages.contains(url)){
 			  System.out.println("µÇÂ¼½çÃæ£¡");  
 			  chain.doFilter(request,response);

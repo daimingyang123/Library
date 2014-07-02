@@ -86,8 +86,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				<input type="text" name="title" placeholder="書籍名入力し" required/>
 				<span class="form_hint">名前</span>
 			</li>
-		 <dt style="color:red">
-			${borrowbookerror}
+		 <dt>
+			${borrowbook}${borroworder}
          </dt>
 			<li style="margin:0 15%">
 				<button class="submit" type="submit">貸出し</button>

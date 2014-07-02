@@ -30,9 +30,12 @@ public class BorrowService implements BorrowServiceInter{
 	}
 
 	
-	public void borrowBook(Borrow borrow,HttpSession session,ServletContext context) throws Exception {
+	public boolean borrowBook(Borrow borrow,HttpSession session,ServletContext context) throws Exception {
 		String title = borrow.getTitle();
 		List<Book> books = (List<Book>) bookDAO.findByTitle(title);
+		if(books.isEmpty()){
+			return false;
+		}
 		for(int i=0;i<books.size();i++){
 			Book mybook = books.get(i);
 			if(mybook.getState().equals(1)){
@@ -40,7 +43,10 @@ public class BorrowService implements BorrowServiceInter{
 				borrow.setBookNo(mybook.getBookNo());
 				bookDAO.save(mybook);
 				break;
-			}			
+			}	
+			if(i==books.size()-1){
+				return false;
+			}
 		}
 		String userName = borrow.getUserName();
 		User myuser = userDAO.findByName(userName);
@@ -53,11 +59,15 @@ public class BorrowService implements BorrowServiceInter{
 		borrow.setBorrowDate(now);
 		borrow.setReturnDate(returnDate);
 		borrowDAO.save(borrow);
+		return true;
 		
 	}
 
-	public void returnBook(Borrow borrow,HttpSession session,ServletContext context) throws Exception {
+	public boolean returnBook(Borrow borrow,HttpSession session,ServletContext context) throws Exception {
 		List<Book> books = (List<Book>) bookDAO.findByTitle(borrow.getTitle());
+		if(books.isEmpty()){
+			return false;
+		}
 		String userName = borrow.getUserName();
 		User myuser = userDAO.findByName(userName);
 		int userNo = myuser.getUserNo();
@@ -71,33 +81,43 @@ public class BorrowService implements BorrowServiceInter{
 				}
 			}
 		}
+		return true;
+		
 	}
-
+//这里原为无返回值，现改为boolean
+	//return false 为新添加  返回true为成功，FALSE为失败
 	@Override
-	public void borrowOrder(Borrow borrow, HttpSession session,
+	public boolean borrowOrder(Borrow borrow, HttpSession session,
 			ServletContext context) throws Exception {
 		String title = borrow.getTitle();
 		List<Book> books = (List<Book>) bookDAO.findByTitle(title);
+		if(books.isEmpty()){
+			return false;
+		}
 		for(int i=0;i<books.size();i++){
 			Book mybook = books.get(i);
 			if(mybook.getState().equals(0)){
 				mybook.setState(null);
 				borrow.setBookNo(mybook.getBookNo());
 				bookDAO.save(mybook);
-				break;
-			}			
+				String userName = borrow.getUserName();
+				User myuser = userDAO.findByName(userName);
+				int userNo = myuser.getUserNo();
+				Date now = new Date();
+				Calendar calendar=Calendar.getInstance();   
+				calendar.set(Calendar.DAY_OF_MONTH,calendar.get(Calendar.DAY_OF_MONTH)+30);//让日期加30 
+				Date returnDate = calendar.getTime();
+				borrow.setUserNo(userNo);
+				borrow.setBorrowDate(now);
+				borrow.setReturnDate(returnDate);
+				borrowDAO.save(borrow);
+				return true;
+			}else{
+				return false;
+			}
 		}
-		String userName = borrow.getUserName();
-		User myuser = userDAO.findByName(userName);
-		int userNo = myuser.getUserNo();
-		Date now = new Date();
-		Calendar calendar=Calendar.getInstance();   
-		calendar.set(Calendar.DAY_OF_MONTH,calendar.get(Calendar.DAY_OF_MONTH)+30);//让日期加30 
-		Date returnDate = calendar.getTime();
-		borrow.setUserNo(userNo);
-		borrow.setBorrowDate(now);
-		borrow.setReturnDate(returnDate);
-		borrowDAO.save(borrow);
+		return false;
+		
 		
 	}
 

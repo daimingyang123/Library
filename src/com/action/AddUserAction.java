@@ -61,7 +61,7 @@ public class AddUserAction extends  ActionSupport {
 		}
 		else{
 			HttpSession session = ServletActionContext.getRequest().getSession();
-			session.setAttribute("adduser", "操作ミス");
+			session.setAttribute("adduser", "利用者Noは重複");
 //			System.out.println("adduseraction--数据库中存在此userno 添加不成功");
 			return INPUT;
 		}

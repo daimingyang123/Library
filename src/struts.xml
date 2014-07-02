@@ -77,11 +77,11 @@
 			<result name="input">/userbooklist.jsp</result>
 		</action>
 		<action name="orderBook"  class="com.action.OrderBookAction">
-			<result name="success">/userbooklist.jsp</result> 
+			<result type="chain">user</result>
 			<result name="input">/userbooklist.jsp</result>
 		</action>
 		<action name="logout"  class="com.action.LogoutAction">
-			<result name="success">/user.jsp</result> 
+			<result name="success">/index.jsp</result> 
 		</action>
 		<action name="getborrows"  class="com.action.GetBorrowsAction">
 			<result name="success">/myBorrow.jsp</result>
