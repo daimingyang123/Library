@@ -41,7 +41,8 @@ public class UserDAO extends DAOSupport implements UserDAOInter {
 
 	@Override
 	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public void delete(final User user) throws Exception {
+	public boolean delete(final User user) throws Exception {
+		try{
 		template.execute(new HibernateCallback() {
 			@Override
 			public Object doInHibernate(Session session)
@@ -49,12 +50,16 @@ public class UserDAO extends DAOSupport implements UserDAOInter {
 				Query query = session
 						.createQuery("delete from User where userNo = ?");
 				query.setInteger(0, user.getUserNo());
-				query.executeUpdate();
-				return null;
+				return query.executeUpdate();
 			}
 		});
-
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		return false;
 	}
+		return true;
+}
 	
 	@SuppressWarnings("unchecked")
 	public User findByName(String userName) throws Exception{

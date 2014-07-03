@@ -8,6 +8,8 @@ import org.hibernate.Query;
 import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
@@ -56,6 +58,19 @@ public class BorrowDAO extends DAOSupport implements BorrowDAOInter {
 		});
 	}
 	
+	@SuppressWarnings("unchecked")
+	public List<Borrow> findByBookNo(final int bookNo) throws Exception {
+		return (List<Borrow>) template.execute(new HibernateCallback(){
+
+			public Object doInHibernate(Session session)
+					throws HibernateException, SQLException
+			{   
+				List<Borrow> borrow = (List<Borrow>)template.find("from Borrow where bookNo = ? ",bookNo);
+				return borrow;
+			}
+		});
+	}
+	
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	public void delete(final Borrow borrow) throws Exception {
 		template.execute(new HibernateCallback() {
@@ -90,8 +105,10 @@ public class BorrowDAO extends DAOSupport implements BorrowDAOInter {
 //		ApplicationContext ctx = new ClassPathXmlApplicationContext(
 //				"applicationContext.xml");
 //		BorrowDAO borrowDAO = (BorrowDAO) ctx.getBean("borrowDAO");
-//		List<Borrow> borrows = borrowDAO.getBorrows();
-//		System.out.println(borrows);
+//		List<Borrow> borrows = borrowDAO.findByBookNo(2);
+//		for(int i=0;i<borrows.size();i++){
+//			System.out.println(borrows.size());	
+//		}
 //		
 //	}
 

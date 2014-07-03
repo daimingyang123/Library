@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.orm.hibernate3.HibernateCallback;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 
@@ -119,12 +120,38 @@ public class BookDAO extends BaseHibernateDAO implements BookDAOInter {
 			}
 		});
 	}
+
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	@Override
+	public boolean delete(final Book book) throws Exception {
+		try {
+			template.execute(new HibernateCallback() {
+				@Override
+				public Object doInHibernate(Session session)
+						throws HibernateException, SQLException {
+					Query query = session
+							.createQuery("delete from Book where bookNo = ?");
+					query.setInteger(0, book.getBookNo());
+					query.executeUpdate();
+//				session.delete(book);
+					return null;
+				}
+			});
+			return true;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("fuck");
+		return false;
+		
+	}
 	
 	
-//	public static void main(String args[]) throws Exception {
-//		ApplicationContext ctx = new ClassPathXmlApplicationContext(
-//				"applicationContext.xml");
-//		BookDAO bookDAO = (BookDAO) ctx.getBean("bookDAO");
+	public static void main(String args[]) throws Exception {
+		ApplicationContext ctx = new ClassPathXmlApplicationContext(
+				"applicationContext.xml");
+		BookDAO bookDAO = (BookDAO) ctx.getBean("bookDAO");
 //		Book mybook = new Book;
 //		Book mybook = bookDAO.findbyTitle("1");
 //		Book book = new Book();
@@ -133,9 +160,11 @@ public class BookDAO extends BaseHibernateDAO implements BookDAOInter {
 //		List<Book> mybook = bookDAO.getBooks(0, 3);
 //		
 //		System.out.println(mybook.get(1).getPlot());
-//		bookDAO.delete(mybook);
+		Book mybook = bookDAO.findByNo(2);
+		System.out.println(mybook.getPlot());
+		bookDAO.delete(mybook);
 		
-//	}
+	}
 
 	
 

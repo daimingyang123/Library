@@ -36,8 +36,8 @@ public class GetBorrowsAction extends ModelAction<BookMsg>{
 			model.setBookMsgList(booksList);
 			
 			//text code
-			System.out.println(booksList.get(0).getBookNo()+" "+booksList.get(0).getTitle()+" "
-			+booksList.get(0).getUserNo()+" "+booksList.get(0).getState()+" "+booksList.get(0).getBorrowDate());
+//			System.out.println(booksList.get(0).getBookNo()+" "+booksList.get(0).getTitle()+" "
+//			+booksList.get(0).getUserNo()+" "+booksList.get(0).getState()+" "+booksList.get(0).getBorrowDate());
 			
 			
 			return SUCCESS;

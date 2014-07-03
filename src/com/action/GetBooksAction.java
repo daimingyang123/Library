@@ -32,7 +32,7 @@ public class GetBooksAction extends ModelAction<Books>{
 			model.setBooks(bookServiceInter.getBooks(model.getPageIndex(),
 			model.getEveryPageCount()));
 //			System.out.println(pageIndex);
-			System.out.println(model.getPageIndex());
+//			System.out.println(model.getPageIndex());
 			if(model.getPageIndex()>0 && model.getPageCount()>=model.getPageIndex()){
 //				System.out.println("∫œ¿Ì∑∂Œß");
 				return SUCCESS;

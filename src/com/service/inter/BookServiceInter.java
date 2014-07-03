@@ -18,4 +18,6 @@ public interface BookServiceInter {
 	public List<Book> findBook(Book book,HttpSession session,ServletContext servletContext) throws Exception;
 	public boolean orderBook(List<Book> books,HttpSession session,ServletContext servletContext) throws Exception;
 	public boolean verifySameBook(Integer bookNo) throws Exception;
+	public boolean deleteBook(Book book,HttpSession session,ServletContext context) throws Exception;
+	public boolean modifyBook(Book book,HttpSession session,ServletContext context) throws Exception;
 }

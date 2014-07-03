@@ -1,5 +1,6 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
@@ -70,7 +71,21 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <tr class="<s:if test="#status.even">row-even</s:if><s:else>row-odd</s:else>">
 
 			<th scope="col" width="20%" align="left" >${booklist.bookNo}</th>
-			<th scope="col" width="10%" align="left" >${booklist.state}</th>
+			<th scope="col" width="10%" align="left" >
+			<c:choose>
+       		<c:when test="${(book.state==null)}">
+            已借出
+       		</c:when>
+		    <c:when test="${(book.state==1)}">
+            在架可借
+       		</c:when>
+		    <c:otherwise>
+		    已预约
+		    </c:otherwise>
+			</c:choose>
+
+			</th>
+
 			<th scope="col" width="30%" align="left" >${booklist.title}</th>
 		    <th scope="col" width="30%" align="left" >${booklist.plot}</th>
 	    

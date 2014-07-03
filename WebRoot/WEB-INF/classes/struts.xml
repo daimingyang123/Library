@@ -87,6 +87,20 @@
 			<result name="success">/myBorrow.jsp</result>
 			<result name="input">/myBorrow.jsp</result> 
 		</action>
+		<action name="deleteBook"  class="com.action.DeleteBookAction">
+			<result type="chain">admin</result>
+		</action>
+		<action name="deleteUser"  class="com.action.DeleteUserAction">
+			<result type="chain">admin</result>
+		</action>
+		<action name="modifyBook"  class="com.action.ModifyBookAction">
+			<result type="chain">admin</result>
+			<result name="input">/modifybook.jsp</result> 
+		</action>
+		<action name="modifyUser"  class="com.action.ModifyUserAction">
+			<result type="chain">user</result>
+			<result name="input">/modifyuser.jsp</result> 
+		</action>
 		
 		
 		

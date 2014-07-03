@@ -38,7 +38,9 @@ public class BorrowService implements BorrowServiceInter{
 		}
 		for(int i=0;i<books.size();i++){
 			Book mybook = books.get(i);
-			if(mybook.getState().equals(1)){
+			Integer state =1;
+//			if(mybook.getState().equals(1)){
+			if(state.equals(mybook.getState())){
 				mybook.setState(null);
 				borrow.setBookNo(mybook.getBookNo());
 				bookDAO.save(mybook);

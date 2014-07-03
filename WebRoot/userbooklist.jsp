@@ -92,7 +92,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </table>			
 </s:iterator> 
 <div class="fanye">
-<form  name="AddStudentForm"  action="user.action" method="post" align="center" >
+<form  name="AddStudentForm"  action="getUsers.action" method="post" align="center" >
    ${pageIndex}ページ目&nbsp;&nbsp;
   総${pageCount}ページ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <logic:greaterThan name="pageIndex" scope="request" value="1">

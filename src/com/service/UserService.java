@@ -2,13 +2,21 @@ package com.service;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.dao.BorrowDAO;
 import com.dao.UserDAO;
+import com.entity.Borrow;
 import com.entity.User;
 import com.service.inter.UserServiceInter;
 
 public class UserService implements UserServiceInter {
 	
 	private UserDAO userDAO;
+	private BorrowDAO borrowDAO;
 	private User addDbUser;
 	UserService(UserDAO userDAO)
 	{
@@ -72,6 +80,35 @@ public class UserService implements UserServiceInter {
 	@Override
 	public long getUserCount() throws Exception {
 		return userDAO.getUserCount();
+	}
+
+	@Override
+	public boolean deleteUser(User user, HttpSession session,
+			ServletContext context) throws Exception {
+		// TODO Auto-generated method stub
+		return userDAO.delete(user);
+	}
+
+	@Override
+	public boolean modifyUser(User user, HttpSession session,
+			ServletContext context) throws Exception {
+			try {
+				int userNo = Integer.parseInt(ServletActionContext.getRequest().getParameter("userNo"));
+				System.out.println(userNo);
+				List<Borrow> borrows = borrowDAO.findByUserNo(userNo);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				int userNo = Integer.parseInt(ServletActionContext.getRequest().getParameter("userNo"));
+				User myuser = userDAO.findByNo(userNo);
+				System.out.println(user.getUserName());
+				System.out.println(myuser.getUserName());
+				myuser.setUserName(user.getUserName());
+				myuser.setEmail(user.getEmail());
+				userDAO.save(myuser);
+				return true;
+			}
+			return false;
 	}
 	
 	//test

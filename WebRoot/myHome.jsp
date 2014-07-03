@@ -51,32 +51,40 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	</div>
 	</div>
 	<div class="right">
-		<form class="contact_form" action="" method="post" name="contact_form">
+		<form class="contact_form" method="post" name="contact_form">
 		<ul>
 			<li>
 				<label for="name">利用者No:</label>
-				<input type="text" name="name" placeholder="利用者No入力し" required pattern="^[0-9]*$"/>
+				<input type="text" name="userNo" disabled="disabled" placeholder="${userNo}"/>
 				<span class="form_hint">数字のみ</span>
 			</li>
 			<li>
 				<label for="name">利用者氏名:</label>
-				<input type="text" name="name" placeholder="利用者氏名入力し" required pattern="^[\u4E00-\u9FFF]+$"/>
+				<input type="text" name="userName" placeholder="${userName}" required pattern="^[\u4E00-\u9FFF]+$"/>
 				<span class="form_hint">漢字</span>
 			</li>
 			<li>
 				<label for="email">Eメール:</label>
-				<input type="email" name="email" placeholder="メールアドレス入力し" required/>
+				<input type="email" name="email" placeholder="${email}" required/>
 				<span class="form_hint">アドレス</span>
-			</li>
-			
-			<li>
-				<button class="submit" type="submit">変更</button>
-				<button class="submit1" type="reset">リセット</button>
 			</li>
 		</ul>
 	</form>
 	</div>
 	</div>
+	<div  class="sun">
+	<input type="button" onclick="submit()"  value="変更" />
+	<button class="submit1" type="reset">リセット</button>
+	</div>
 
 </body>
+<script type="text/javascript">
+	function submit()
+    {
+	var userNo = ${userNo}
+	document.forms[0].action = "modifyUser.action?userNo="+Number(userNo); 
+  	document.forms[0].submit();
+  	form.submit();
+  	}
+</script> 
 </html>

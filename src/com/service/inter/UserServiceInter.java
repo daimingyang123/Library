@@ -2,6 +2,9 @@ package com.service.inter;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
+
 import com.entity.User;
 
 public interface UserServiceInter {
@@ -18,4 +21,7 @@ public interface UserServiceInter {
 	
 	public long getUserCount() throws Exception;
 	
+	public boolean deleteUser(User user,HttpSession session,ServletContext context) throws Exception;
+	
+	public boolean modifyUser(User user,HttpSession session,ServletContext context) throws Exception;
 }

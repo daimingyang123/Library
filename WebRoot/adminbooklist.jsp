@@ -51,10 +51,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <table width="80%"  align="center"  >
 <tr>
 
-			<th scope="col" width="20%" align="left" >書籍No</th>
+			<th scope="col" width="10%" align="left" >書籍No</th>
 			<th scope="col" width="10%" align="left" >状態</th>
-			<th scope="col" width="30%" align="left" >書籍名</th>
-		    <th scope="col" width="30%" align="left" >プロット</th>    
+			<th scope="col" width="20%" align="left" >書籍名</th>
+		    <th scope="col" width="20%" align="left" >プロット</th> 
+		    <th scope="col" width="20%" align="left" >オペレーティング</th>     
 </tr>
 </table>
 <s:if test="book.state == 0">已借出</s:if>
@@ -62,7 +63,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <table width="80%"  align="center" >
 <tr class="<s:if test="#status.even">row-even</s:if><s:else>row-odd</s:else>">
 
-			<th scope="col" width="20%" align="left" >${book.bookNo}</th>
+			<th scope="col" width="10%" align="left" >${book.bookNo}</th>
 			<th scope="col" width="10%" align="left" >
 			<c:choose>
        		<c:when test="${(book.state==null)}">
@@ -77,72 +78,42 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</c:choose>
 
 			</th>
-			<th scope="col" width="30%" align="left" >${book.title}</th>
-		    <th scope="col" width="30%" align="left" >${book.plot}</th>
+			<th scope="col" width="20%" align="left" >${book.title}</th>
+		    <th scope="col" width="20%" align="left" >${book.plot}</th>
+		    <th scope="col" width="20%" align="left" ><a href="modifybook.jsp?bookNo=${book.bookNo}">変更</a> &nbsp;&nbsp; <a href="deleteBook.action?bookNo=${book.bookNo}">削除</a></th>
+		    
 	    
 </tr>
 </table>			
 </s:iterator>
 <form  name="AddStudentForm"  action="admin.action" method="post">
-  第${pageIndex}页&nbsp;
-  共${pageCount}页&nbsp;
-  <a href="admin.action?pageIndex=1">首页</a>
+   ${pageIndex}ページ目&nbsp;&nbsp;
+  総${pageCount}ページ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <logic:greaterThan name="pageIndex" scope="request" value="1">
-      <a href="admin.action?pageIndex=${pageIndex - 1}">上一页</a>
+      <a href="admin.action?pageIndex=${pageIndex - 1}">前のページ</a>
   </logic:greaterThan>
   
   <logic:lessThan name="pageIndex" scope="request" value="${requestScope.pageCount}">
-       <a href="admin.action?pageIndex=${requestScope.pageIndex + 1}">下一页</a>
+       <a href="admin.action?pageIndex=${requestScope.pageIndex + 1}">次のページ</a>
   </logic:lessThan>
   
-  <a href="admin.action?pageIndex=${requestScope.pageCount}">尾页</a>&nbsp;跳到<input size="4" type="text" name="pageIndex" id="pageIndex"/>页 <input type="submit" value="go" />
+    &nbsp;&nbsp;ジャンプ<input size="4" type="text" name="pageIndex" id="pageIndex"/><input type="submit" value="go" />
 </form>
 <dt>${adminbook}</dt>
   </div>
       </div>
         <div class="pane" id="about">
        <div class="search">
-<table width="80%" align="center"  >
-<tr>
-            <th scope="col" width="10%" align="left" >&nbsp;</th>
-			<th scope="col" width="10%" align="left" >利用者No</th>
-			<th scope="col" width="20%" align="left" >利用者名</th>
-			<th scope="col" width="30%" align="left" >Eメール</th>
-	    
-</tr>
-</table>
-<s:iterator id="user" value="users" status="status">
-<table width="80%" align="center" >
-<tr class="<s:if test="#status.even">row-even</s:if><s:else>row-odd</s:else>">
-            <th scope="col" width="10%" align="left" >&nbsp;</th>
-			<th scope="col" width="10%" align="left" >${user.userNo}</th>
-			<th scope="col" width="20%" align="left" >${user.userName}</th>
-			<th scope="col" width="30%" align="left" >${user.email}</th>   
-</tr>
-</table>			
-</s:iterator> 
-<form  name="AddStudentForm"  action="admin.action" method="post">
-  第${pageIndex}页&nbsp;
-  共${pageCount}页&nbsp;
-  <a href="admin.action?pageIndex=1">首页</a>
-  <logic:greaterThan name="pageIndex" scope="request" value="1">
-      <a href="main.action?pageIndex=${pageIndex - 1}">上一页</a>
-  </logic:greaterThan>
-  
-  <logic:lessThan name="pageIndex" scope="request" value="${requestScope.pageCount}">
-       <a href="main.action?pageIndex=${requestScope.pageIndex + 1}">下一页</a>
-  </logic:lessThan>
-  
-  <a href="admin.action?pageIndex=${requestScope.pageCount}">尾页</a>&nbsp;跳到<input size="4" type="text" name="pageIndex" id="pageIndex"/>页 <input type="submit" value="遷移" />
 
-</form>
-<dt>${adminbook}</dt>
   </div>
       </div>
     </div>
   </div>
 </div>
+<input type="hidden" id="bookNo" name="bookNo" value="${book.bookNo}"/>
 <script type="text/javascript" charset="utf-8">
+ 	/* var key=document.getElementById('bookNo');
+    window.location='modify.jsp?bookNo='+bookNo.value; */
 		window.addEvent('load', function () {
 			myTabs = new SlidingTabs('buttons', 'panes');
 			

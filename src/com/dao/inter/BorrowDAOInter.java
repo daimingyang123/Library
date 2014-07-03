@@ -9,4 +9,5 @@ public interface BorrowDAOInter {
 	public List<Borrow> findByUserNo(final int userNo) throws Exception;
 	public void delete(final Borrow borrow) throws Exception;
 	public List<Borrow> getBorrows();
+	public List<Borrow> findByBookNo(final int bookNo) throws Exception;
 }
