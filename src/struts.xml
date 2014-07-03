@@ -34,11 +34,11 @@
 		</action>
 		<action name="admin"  class="com.action.GetBooksAction">
 			<result name="success">/adminbooklist.jsp</result> 
-			<result name="error">/error.jsp</result>
+			<result name="input">/adminbooklist.jsp</result>
 		</action>
 		<action name="getUsers"  class="com.action.GetUsersAction">
 			<result name="success">/adminbooklist2.jsp</result> 
-			<result name="input">/error.jsp</result>
+			<result name="input">/adminbooklist2.jsp</result>
 		</action>
 		<action name="login"  class="com.action.LoginAction">
 			<result type="chain">user</result>
@@ -50,7 +50,7 @@
 		</action>
 		<action name="user"  class="com.action.GetBooksAction">
 			<result name="success">/userbooklist.jsp</result> 
-			<result name="error">/error.jsp</result>
+			<result name="input">/userbooklist.jsp</result>
 		</action>
 		<action name="addBook"  class="com.action.AddBookAction">
 			<result name="success">/addbook.jsp</result>

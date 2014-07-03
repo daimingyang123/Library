@@ -97,6 +97,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <a href="admin.action?pageIndex=${requestScope.pageCount}">尾页</a>&nbsp;跳到<input size="4" type="text" name="pageIndex" id="pageIndex"/>页 <input type="submit" value="go" />
 </form>
+<dt>${adminbook}</dt>
   </div>
       </div>
         <div class="pane" id="about">
@@ -133,7 +134,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </logic:lessThan>
   
   <a href="admin.action?pageIndex=${requestScope.pageCount}">尾页</a>&nbsp;跳到<input size="4" type="text" name="pageIndex" id="pageIndex"/>页 <input type="submit" value="遷移" />
+
 </form>
+<dt>${adminbook}</dt>
   </div>
       </div>
     </div>

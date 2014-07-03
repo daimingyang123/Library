@@ -78,6 +78,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   
   <a href="getUsers.action?pageIndex=${requestScope.pageCount}">尾页</a>&nbsp;跳到<input size="4" type="text" name="pageIndex" id="pageIndex"/>页 <input type="submit" value="遷移" />
 </form>
+<dt>${adminuser}</dt>
   </div>
       </div>
     </div>

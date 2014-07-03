@@ -43,7 +43,7 @@ public class BorrowService implements BorrowServiceInter{
 				borrow.setBookNo(mybook.getBookNo());
 				bookDAO.save(mybook);
 				break;
-			}	
+			}
 			if(i==books.size()-1){
 				return false;
 			}
@@ -82,7 +82,7 @@ public class BorrowService implements BorrowServiceInter{
 			}
 		}
 		return true;
-		
+
 	}
 //这里原为无返回值，现改为boolean
 	//return false 为新添加  返回true为成功，FALSE为失败
@@ -96,7 +96,10 @@ public class BorrowService implements BorrowServiceInter{
 		}
 		for(int i=0;i<books.size();i++){
 			Book mybook = books.get(i);
-			if(mybook.getState().equals(0)){
+			System.out.println("borrowservice--"+mybook);
+//			if(mybook.getState().equals(0)){\
+			Integer state =0;
+			if(state.equals(mybook.getState())){	
 				mybook.setState(null);
 				borrow.setBookNo(mybook.getBookNo());
 				bookDAO.save(mybook);
@@ -112,8 +115,6 @@ public class BorrowService implements BorrowServiceInter{
 				borrow.setReturnDate(returnDate);
 				borrowDAO.save(borrow);
 				return true;
-			}else{
-				return false;
 			}
 		}
 		return false;

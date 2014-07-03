@@ -37,6 +37,7 @@ public class LoginAction extends  ModelAction<User> {
 				    session.setAttribute("userNo", model.getUserNo());
 				    //TEXT
 				    System.out.println("enter--if()--"+session.getAttribute("userNo")+"---"+session.getAttribute("userName"));
+				    session.setAttribute("state", "user");
 					return SUCCESS;
 				}
 			

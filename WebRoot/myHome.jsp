@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div class="left_2">
 	<table width="100%">
 	<tr><td><a href="myHome.jsp"style="color:blue;"><img src="img/an1.png"></img><font class="font2l">読者情報セット</font></a></td></tr>
-	<tr><td><a href="myBorrow.jsp" ><img src="img/an2.jpg"></img><font class="font2l">書籍貸出情報</font></a></td></tr>
+	<tr><td><a href="getborrows.action"><img src="img/an2.jpg"></img><font class="font2l">書籍貸出情報</font></a></td></tr>
 	<tr><td><a href="myOrder.jsp" ><img src="img/an3 .jpg"></img><font class="font2l">予約情報</font></a></td></tr>
 	</table>
 	</div>

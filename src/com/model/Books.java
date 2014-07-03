@@ -7,7 +7,7 @@ import com.entity.Book;
 
 public class Books {
 //	 private String username;
-	 private int everyPageCount = 15;
+	 private int everyPageCount = 13;
 	 private long count;
 	 private int pageCount;
 	 private List<Book> books;

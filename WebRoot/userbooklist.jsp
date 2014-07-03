@@ -104,6 +104,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
   </logic:lessThan>
   &nbsp;&nbsp;ジャンプ<input size="4" type="text" name="pageIndex" id="pageIndex"/><input type="submit" value="go" />
 </form>
+<dt>${userbook}</dt>
 </div>
 </div>
 
