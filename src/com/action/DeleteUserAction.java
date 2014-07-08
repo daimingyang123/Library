@@ -27,7 +27,6 @@ public class DeleteUserAction extends ModelAction<User>{
 			}else{
 				HttpSession session = ServletActionContext.getRequest().getSession();
 				session.setAttribute("adminuser", "もう操作できない");
-				System.out.println("sss");
 			}
 		}catch (Exception e){
 			e.printStackTrace();

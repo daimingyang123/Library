@@ -42,12 +42,12 @@ public class BookService implements BookServiceInter{
 	public void addBook(Book book, HttpSession session, ServletContext context)
 			throws Exception {
 		int bookNo = Integer.parseInt(ServletActionContext.getRequest().getParameter("bookNo"));
-		if(bookNo==0){
+//		if(bookNo==0){
 			book.setState(1);
 			bookDAO.save(book);
-		}else{
-			
-		}
+//		}else{
+//			
+//		}
 		
 		
 	}
@@ -90,8 +90,15 @@ public class BookService implements BookServiceInter{
 	@Override
 	public boolean deleteBook(Book book, HttpSession session,
 			ServletContext context) throws Exception {
-		// TODO Auto-generated method stub
-		return bookDAO.delete(book);
+		int bookNo = Integer.parseInt(ServletActionContext.getRequest().getParameter("bookNo"));
+		Book mybook = bookDAO.findByNo(bookNo);
+		int i = mybook.getState();
+		if(i==1){
+			bookDAO.delete(mybook);
+//			System.out.println("service1");
+			return true;
+		}
+	return false;
 	}
 	
 	public boolean modifyBook(Book book, HttpSession session,

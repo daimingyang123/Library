@@ -104,7 +104,7 @@ public class UserDAO extends DAOSupport implements UserDAOInter {
 	 throws HibernateException, SQLException
 	 {
 	 Query query =
-	 session.createQuery("from User order by userNO DESC");
+	 session.createQuery("from User order by userNO");
 	 query.setFirstResult(start);
 	 query.setMaxResults(count);
 	 return query.list();

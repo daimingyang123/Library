@@ -6,6 +6,8 @@ import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.dao.BorrowDAO;
 import com.dao.UserDAO;
@@ -18,9 +20,10 @@ public class UserService implements UserServiceInter {
 	private UserDAO userDAO;
 	private BorrowDAO borrowDAO;
 	private User addDbUser;
-	UserService(UserDAO userDAO)
+	UserService(UserDAO userDAO,BorrowDAO borrowDAO)
 	{
 		this.userDAO=userDAO;
+		this.borrowDAO=borrowDAO;
 	}
 
 	@Override
@@ -85,9 +88,23 @@ public class UserService implements UserServiceInter {
 	@Override
 	public boolean deleteUser(User user, HttpSession session,
 			ServletContext context) throws Exception {
-		// TODO Auto-generated method stub
-		return userDAO.delete(user);
-	}
+		try {
+			int userNo = Integer.parseInt(ServletActionContext.getRequest().getParameter("userNo"));
+			System.out.println(userNo);
+			List<Borrow> borrows = borrowDAO.findByUserNo(userNo);
+			if(borrows.isEmpty()){
+//				int userNo = Integer.parseInt(ServletActionContext.getRequest().getParameter("userNo"));
+				User myuser = userDAO.findByNo(userNo);
+				userDAO.delete(myuser);
+				return true;
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		return false;
+}
 
 	@Override
 	public boolean modifyUser(User user, HttpSession session,
@@ -96,32 +113,44 @@ public class UserService implements UserServiceInter {
 				int userNo = Integer.parseInt(ServletActionContext.getRequest().getParameter("userNo"));
 				System.out.println(userNo);
 				List<Borrow> borrows = borrowDAO.findByUserNo(userNo);
+//				if(borrows.isEmpty()){
+//					int userNo = Integer.parseInt(ServletActionContext.getRequest().getParameter("userNo"));
+					User myuser = userDAO.findByNo(userNo);
+					System.out.println(user.getUserName());
+					System.out.println(myuser.getUserName());
+					myuser.setUserName(user.getUserName());
+					myuser.setEmail(user.getEmail());
+					userDAO.save(myuser);
+					return true;
+//				}else{
+//					User myuser = userDAO.findByNo(userNo);
+//					myuser.setUserName(user.getUserName());
+//					myuser.setEmail(user.getEmail());
+//					userDAO.save(myuser);
+//					for(int i=0;i<borrows.size();i++){
+//						borrows.get(i).setUserNo(userNo);
+//					}
+//				}
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-				int userNo = Integer.parseInt(ServletActionContext.getRequest().getParameter("userNo"));
-				User myuser = userDAO.findByNo(userNo);
-				System.out.println(user.getUserName());
-				System.out.println(myuser.getUserName());
-				myuser.setUserName(user.getUserName());
-				myuser.setEmail(user.getEmail());
-				userDAO.save(myuser);
-				return true;
+				
 			}
 			return false;
 	}
 	
 	//test
-//	public static void main(String args[]) throws Exception {
-//	ApplicationContext ctx = new ClassPathXmlApplicationContext(
-//			"applicationContext.xml");
+	public static void main(String args[]) throws Exception {
+	ApplicationContext ctx = new ClassPathXmlApplicationContext(
+			"applicationContext.xml");
 //	UserServiceInter userServiceInter = (UserServiceInter) ctx.getBean("UserService");
 //	User uer=new User();
-////	uer.setUserNo(1);
-////	boolean user = userServiceInter.verifyUser(uer);
+//	uer.setUserNo(1);
+//	boolean user = userServiceInter.verifyUser(uer);
 //	uer=userServiceInter.addUser("fack");
 //	
 //	System.out.println(uer.getUserName());
-//}
+	
+}
 
 }

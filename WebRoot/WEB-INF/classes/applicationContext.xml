@@ -63,6 +63,9 @@
 	<bean id="UserService" class="com.service.UserService">
 		<constructor-arg>
 		<ref bean="UserDAO" />
+	</constructor-arg>
+	<constructor-arg>
+		<ref bean="borrowDAO" />
 	</constructor-arg></bean>
 	<bean id="borrowService" class="com.service.BorrowService">
 	<constructor-arg>

@@ -98,7 +98,7 @@
 			<result name="input">/modifybook.jsp</result> 
 		</action>
 		<action name="modifyUser"  class="com.action.ModifyUserAction">
-			<result type="chain">user</result>
+			<result name="success">/myHome.jsp</result>
 			<result name="input">/modifyuser.jsp</result> 
 		</action>
 		

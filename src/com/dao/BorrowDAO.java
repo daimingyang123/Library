@@ -105,7 +105,7 @@ public class BorrowDAO extends DAOSupport implements BorrowDAOInter {
 //		ApplicationContext ctx = new ClassPathXmlApplicationContext(
 //				"applicationContext.xml");
 //		BorrowDAO borrowDAO = (BorrowDAO) ctx.getBean("borrowDAO");
-//		List<Borrow> borrows = borrowDAO.findByBookNo(2);
+//		List<Borrow> borrows = borrowDAO.findByUserNo(1);
 //		for(int i=0;i<borrows.size();i++){
 //			System.out.println(borrows.size());	
 //		}

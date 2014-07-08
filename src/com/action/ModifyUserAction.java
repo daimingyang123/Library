@@ -22,7 +22,7 @@ public class ModifyUserAction extends ModelAction<User>{
 			UserServiceInter userServiceInter = (UserServiceInter) ctx.getBean("UserService");
 				userServiceInter.modifyUser(model, session, context);
 				HttpSession session = ServletActionContext.getRequest().getSession();
-//				session.setAttribute("adminUser", "操作を成功");
+				session.setAttribute("username", model.getUserName());
 				return SUCCESS;
 		}catch (Exception e){
 			e.printStackTrace();

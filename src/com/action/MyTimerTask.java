@@ -19,6 +19,6 @@ public class MyTimerTask implements ServletContextListener
   timer = new Timer(true); 
   event.getServletContext().log("定时器已启动");//添加日志，可在tomcat日志中查看到 
   //调用exportHistoryBean，0表示任务无延迟，5*1000表示每隔5秒执行任务，60*60*1000表示一个小时；
-  timer.schedule(new SendEmail(event.getServletContext()),0,5*1000);  
+  timer.schedule(new SendEmail(event.getServletContext()),0,60*60*1000);  
  }
 }

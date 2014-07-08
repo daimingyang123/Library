@@ -39,7 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <img src="img/book.jpg"></img>
     </div>
     <div class="div2_2" >
-    <form class="contact_form" action="addBook" method="post" name="contact_form">
+    <form class="contact_form" action="addBook.action" method="post" name="contact_form">
 		<ul>
 			<li>
 				<label for="name">書籍No:</label>

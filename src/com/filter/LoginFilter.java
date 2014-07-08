@@ -24,7 +24,7 @@ public class LoginFilter extends HttpServlet implements Filter   {
 	public void doFilter(ServletRequest request, ServletResponse response,
 			FilterChain chain) throws IOException, ServletException {
 		// TODO Auto-generated method stub
-		RequestDispatcher dispatcher = request.getRequestDispatcher("user.jsp");//这里设置如果没有登陆将要转发到的页面  
+		RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");//这里设置如果没有登陆将要转发到的页面  
 		  HttpServletRequest req = (HttpServletRequest) request;  
 		  HttpServletResponse res = (HttpServletResponse) response;  
 		  HttpSession session = req.getSession(true);

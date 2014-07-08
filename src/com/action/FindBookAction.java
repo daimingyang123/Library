@@ -24,6 +24,9 @@ public class FindBookAction extends ModelAction<Book> {
 			ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
 			BookServiceInter bookServiceInter = (BookServiceInter) ctx.getBean("bookService");
 			List<Book> booklist =bookServiceInter.findBook(model, session, context);
+			if(booklist.isEmpty()){
+				session.setAttribute("orderbook", "この云がない");
+			}
 			session.setAttribute("booklist",booklist);
 			model.setBooks(booklist);
 			return SUCCESS;

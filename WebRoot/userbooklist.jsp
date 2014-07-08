@@ -69,20 +69,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <tr class="<s:if test="#status.even">row-even</s:if><s:else>row-odd</s:else>">
 
 			<th scope="col" width="20%" align="left" >${book.bookNo}</th>
-			<th scope="col" width="10%" align="left" >
-			<c:choose>
-       		<c:when test="${(book.state==null)}">
-            已借出
-       		</c:when>
-		    <c:when test="${(book.state==1)}">
-            在架可借
-       		</c:when>
-		    <c:otherwise>
-		    已预约
-		    </c:otherwise>
-			</c:choose>
-
-			</th>
 
 			<th scope="col" width="30%" align="left" >${book.title}</th>
 		    <th scope="col" width="30%" align="left" >${book.plot}</th>

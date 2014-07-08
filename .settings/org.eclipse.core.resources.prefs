@@ -1,4 +1,4 @@
-#Thu Jul 03 21:15:06 CST 2014
+#Fri Jul 04 10:14:42 CST 2014
 eclipse.preferences.version=1
 encoding//WebRoot/css/header1.css=UTF-8
 encoding//src/com/action/AddBookAction.java=UTF-8
@@ -12,5 +12,6 @@ encoding//src/com/action/LoginAction.java=UTF-8
 encoding//src/com/action/ModifyBookAction.java=UTF-8
 encoding//src/com/action/ModifyUserAction.java=UTF-8
 encoding//src/com/action/ReturnBookAction.java=UTF-8
+encoding//src/com/action/SendEmail.java=UTF-8
 encoding//src/com/service/BookService.java=UTF-8
 encoding//src/com/service/BorrowService.java=UTF-8

@@ -58,7 +58,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <s:iterator id="user" value="users" status="status">
 <table width="80%" align="center" >
 <tr class="<s:if test="#status.even">row-even</s:if><s:else>row-odd</s:else>">
-            <th scope="col" width="10%" align="left" >&nbsp;</th>
 			<th scope="col" width="10%" align="left" >${user.userNo}</th>
 			<th scope="col" width="20%" align="left" >${user.userName}</th>
 			<th scope="col" width="20%" align="left" >${user.email}</th>

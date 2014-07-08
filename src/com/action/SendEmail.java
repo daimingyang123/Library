@@ -41,7 +41,7 @@ private ServletContext context = null;
  public void run() 
  { 
       /*
-      * ÒÔÏÂÎªjavamailµÄÓÊ¼ş·¢ËÍ
+      * ä»¥ä¸‹ä¸ºjavamailçš„é‚®ä»¶å‘é€
       */
 	 	try{
 	 		ApplicationContext ctx = new ClassPathXmlApplicationContext("applicationContext.xml");
@@ -57,30 +57,30 @@ private ServletContext context = null;
 				String s2 = sdf.format(borrows.get(i).getReturnDate());
 				if(s1.equals(s2)){
 					String email = userServiceInter.findByNo(borrow.getUserNo()).getEmail();
-					System.out.println("ÕıÔÚ·¢ËÍÓÊ¼ş");
+					System.out.println("æ­£åœ¨å‘é€é‚®ä»¶");
 					Properties props=new Properties();
-			        props.put("mail.smtp.host","smtp.qq.com");//·¢¼şÈËÊ¹ÓÃ·¢ÓÊ¼şµÄµç×ÓĞÅÏä·şÎñÆ÷ÎÒÊ¹ÓÃµÄÊÇqqµÄ·şÎñÆ÷
-			        props.put("mail.smtp.auth","true"); //ÕâÑù²ÅÄÜÍ¨¹ıÑéÖ¤
+			        props.put("mail.smtp.host","smtp.qq.com");//å‘ä»¶äººä½¿ç”¨å‘é‚®ä»¶çš„ç”µå­ä¿¡ç®±æœåŠ¡å™¨æˆ‘ä½¿ç”¨çš„æ˜¯qqçš„æœåŠ¡å™¨
+			        props.put("mail.smtp.auth","true"); //è¿™æ ·æ‰èƒ½é€šè¿‡éªŒè¯
 			        Session s=Session.getInstance(props);
 			        s.setDebug(true);
 			        MimeMessage message=new MimeMessage(s);
-			        //¸øÏûÏ¢¶ÔÏóÉèÖÃ·¢¼şÈË/ÊÕ¼şÈË/Ö÷Ìâ/·¢ĞÅÊ±¼ä
-			        InternetAddress from=new InternetAddress("1428353071@qq.com");  //·¢ÓÊ¼şµÄ³ö·¢µØ£¨·¢¼şÈËµÄĞÅÏä£©£¬ÕâÊÇÎÒµÄÓÊÏäµØÖ·£¬Ê¹ÓÃÇë¸Ä³ÉÄãµÄÓĞĞ§µØÖ·
+			        //ç»™æ¶ˆæ¯å¯¹è±¡è®¾ç½®å‘ä»¶äºº/æ”¶ä»¶äºº/ä¸»é¢˜/å‘ä¿¡æ—¶é—´
+			        InternetAddress from=new InternetAddress("1428353071@qq.com");  //å‘é‚®ä»¶çš„å‡ºå‘åœ°ï¼ˆå‘ä»¶äººçš„ä¿¡ç®±ï¼‰ï¼Œè¿™æ˜¯æˆ‘çš„é‚®ç®±åœ°å€ï¼Œä½¿ç”¨è¯·æ”¹æˆä½ çš„æœ‰æ•ˆåœ°å€
 			        message.setFrom(from);
-			        InternetAddress to=new InternetAddress(email);// ttoÎª·¢ÓÊ¼şµÄÄ¿µÄµØ£¨ÊÕ¼şÈËĞÅÏä£©
+			        InternetAddress to=new InternetAddress(email);// ttoä¸ºå‘é‚®ä»¶çš„ç›®çš„åœ°ï¼ˆæ”¶ä»¶äººä¿¡ç®±ï¼‰
 			        message.setRecipient(Message.RecipientType.TO,to);
-			        message.setSubject("´ß»¹Í¨Öª");// ttitleÎªÓÊ¼şµÄ±êÌâ
+			        message.setSubject("å‚¬è¿˜é€šçŸ¥");// ttitleä¸ºé‚®ä»¶çš„æ ‡é¢˜
 			        message.setSentDate(now);
-			        BodyPart mdp=new MimeBodyPart();//ĞÂ½¨Ò»¸ö´æ·ÅĞÅ¼şÄÚÈİµÄBodyPart¶ÔÏó
+			        BodyPart mdp=new MimeBodyPart();//æ–°å»ºä¸€ä¸ªå­˜æ”¾ä¿¡ä»¶å†…å®¹çš„BodyPartå¯¹è±¡
 			        String content = bookServiceInter.findByNo(borrow.getBookNo()).getTitle();
-			        mdp.setContent("Äú½èµÄÍ¼Êé"+ content + "¸Ã»¹ÁË","text/html;charset=utf-8");//¸øBodyPart¶ÔÏóÉèÖÃÄÚÈİºÍ¸ñÊ½/±àÂë·½Ê½tcontentÎªÓÊ¼şÄÚÈİ
-			        Multipart mm=new MimeMultipart();//ĞÂ½¨Ò»¸öMimeMultipart¶ÔÏóÓÃÀ´´æ·ÅBodyPart¶Ô
-			        //Ïó(ÊÂÊµÉÏ¿ÉÒÔ´æ·Å¶à¸ö)
-			        mm.addBodyPart(mdp);//½«BodyPart¼ÓÈëµ½MimeMultipart¶ÔÏóÖĞ(¿ÉÒÔ¼ÓÈë¶à¸öBodyPart)
-			        message.setContent(mm);//°Ñmm×÷ÎªÏûÏ¢¶ÔÏóµÄÄÚÈİ
+			        mdp.setContent("ãŠå€Ÿã‚Šã«  "+ content + "  ãŒè¿”ã™ã ã£ãŸ","text/html;charset=utf-8");//ç»™BodyPartå¯¹è±¡è®¾ç½®å†…å®¹å’Œæ ¼å¼/ç¼–ç æ–¹å¼tcontentä¸ºé‚®ä»¶å†…å®¹
+			        Multipart mm=new MimeMultipart();//æ–°å»ºä¸€ä¸ªMimeMultipartå¯¹è±¡ç”¨æ¥å­˜æ”¾BodyPartå¯¹
+			        //è±¡(äº‹å®ä¸Šå¯ä»¥å­˜æ”¾å¤šä¸ª)
+			        mm.addBodyPart(mdp);//å°†BodyPartåŠ å…¥åˆ°MimeMultipartå¯¹è±¡ä¸­(å¯ä»¥åŠ å…¥å¤šä¸ªBodyPart)
+			        message.setContent(mm);//æŠŠmmä½œä¸ºæ¶ˆæ¯å¯¹è±¡çš„å†…å®¹
 			        message.saveChanges();
 			        Transport transport=s.getTransport("smtp");
-			        transport.connect("smtp.qq.com","1428353071@qq.com","neverreturn1314");//·¢ÓÊ¼şÈËÕÊ»§ÃÜÂë,´ËÍâÊÇÎÒµÄÕÊ»§ÃÜÂë£¬Ê¹ÓÃÊ±ÇëĞŞ¸Ä¡£
+			        transport.connect("smtp.qq.com","1428353071@qq.com","neverreturn1314");//å‘é‚®ä»¶äººå¸æˆ·å¯†ç ,æ­¤å¤–æ˜¯æˆ‘çš„å¸æˆ·å¯†ç ï¼Œä½¿ç”¨æ—¶è¯·ä¿®æ”¹ã€‚
 			        transport.sendMessage(message, message.getAllRecipients());
 			        transport.close();  
 			}

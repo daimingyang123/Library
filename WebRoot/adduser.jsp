@@ -43,7 +43,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<ul>
 			<li>
 				<label for="name">利用者No:</label>
-				<input type="text" name="userNo" disabled="disabled" placeholder="${userNo}"/>
+				<input type="text" name="userNo" placeholder="利用者No入力し" required pattern="^[0-9]*$"/>
 				<span class="form_hint">数字のみ</span>
 			</li>
 			<li>
